@@ -1,0 +1,54 @@
+Q1: Decide if the following sentences are valid, unsatisfiable, or neither.
+To do it, use the truth tables and equivalency rules in Chapter 7.
+
+Big ⇒ Big
+	valid
+
+Big ⇒ Heavy
+	satisfiable
+
+(Big ⇒ Heavy) ⇒ (¬ Big ⇒ ¬ Heavy)
+	satisfiable
+
+Big ∨ Heavy ∨ ¬ Heavy
+	valid 
+
+((Big ∧ Dense)⇒ Heavy) ⇔ ((Big ⇒ Dense) ∨ (Heavy ⇒ Dense))
+	satisfiable
+
+(Big ⇒ Dense) ⇒ ((Big ∧ Heavy) ⇒ Dense)
+	valid
+
+Small ∨ Cute ∨ (Small ⇒ Cute)
+	satisfiable
+
+(Small ∧ Cute) ∨ ¬ Cute
+	satisfiable
+
+((Rain ⇒ Wet) ∧ (Wet ⇒ Cold)) ⇒ (Rain ⇒ Cold)
+	valid
+
+((Rain ∨ Wet ) ∧ ( ¬ Wet ∨ Cold)) ⇒ ( Rain ∨ Cold )
+	valid
+
+
+Q2: For each of the following formulas, state briefly if it is a correct representation in propositional calculus of the sentence "If Bill works and his father stays at home, then his mother is happy" or not and explain why. The propositions used in the sentences should have an obvious interpretation.
+
+BillWork ∧ DadHome ∧ MomHappy
+	This is incorrect because this would be read as "Bill is at work, and his father is home, and his mother is happy", but whether Bill is at work or whether his father stays home won't affect the happiness of his mother.
+
+(BillWork ∧ DadHome) ⇒ MomHappy
+	This is correct because if Mom was unhappy, then Bill and dad aren't in their correct states.
+
+
+(BillWork ∨ DadHome) ⇒ MomHappy
+	This statement is also incorrect because again mom can be happy or unhappy regardless of whether (BillWork ∨ DadHome) is true or false.
+
+
+MomHappy ⇒ (BillWork ∧ DadHome)
+	This statement is incorrect because the state of mom implies whether Bill is at home and dad is at work.
+
+
+¬ BillWork ∨ (¬ MomHappy ∨ DadHome)
+	This statement is incorrect because there is a case where mom can be happy/unhappy, regardless of the states Bill and dad are.
+

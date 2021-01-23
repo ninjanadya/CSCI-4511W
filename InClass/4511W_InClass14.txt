@@ -1,0 +1,46 @@
+Nadya Postolaki
+4511W
+In Class 14
+
+
+This question is about Graphplan.
+
+Suppose you have an ATM card, have no money, and no food.  The ATM card allows you to get money every time you use it. With money you can buy food, so you will have food but no money.  Your goal is to have food.
+
+	1) Write actions schemas for the problem, using propositions such as HaveCard, HaveFood, HaveMoney. 
+
+	Initial(Have(card) ∧ ¬Have(money) ∧ ¬Have(food))
+	
+	Goal(HaveFood)
+	
+	Action(Get(money, from, atm),
+		Precond: Have(card) ∧ Atm(atm) ∧ Use(card, atm) ∧ ¬Have(money)
+		Effect: Have(card) ∧ Have(money)
+
+	Action(Buy(food)),
+		Precond: Have(money) ∧ ¬Have(food) ∧ Use(money, Buy(food))
+		Effect: ¬Have(money) ∧ Have(food)
+
+
+	
+
+	2) Show the level graph from S0 to S2, with the action levels in between, and mark to mutexes on the graph.
+	
+	S0: Have(card) ∧ ¬Have(money) ∧ ¬Have(food)
+	
+	A0: Get(money, from, atm)
+	
+	S1: Have(card) ∧ Have(money) ∧ ¬Have(food)
+	
+	A1: Buy(food)
+	
+	S2: Have(card) ∧ ¬Have(money) ∧ Have(food)
+	
+	
+
+	3) At what level can the goal be achieved?
+	
+	Level S2 is when the goal achieved, and that occures once A1 is run.
+
+	4) If your goal is instead to have food and have money, can it be achieved? If yes, at what level?
+	It can, but it would be achieved at S3 where A0 would have to be repeated (at A2, after S2), because after buying food, one is left with no money, but to get more money all they would have to do is go use the atm again to get more money after they have bought food since we didn't lose the card after using it.

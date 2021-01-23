@@ -1,0 +1,49 @@
+@incollection{AITextbook,
+    author      = {{Stuart J. Russell,}
+    \and
+    {Peter Norvig}},
+    title       = "Artificial Intelligence",
+    editor      = "Marcia Horton",
+    booktitle   = "A Modern Approach Third Edition",
+    publisher   = "Pearson Education",
+    address     = "New Jersey",
+    year        = 2010,
+    pages       = "8-9",
+    chapter     = 1,
+}
+
+@online{minesweeperIsNPComplete,
+    author = {Kaye, Richard},
+    title = {Minesweeper is NP-Complete},
+    year = {2000},
+    note = {http://simon.bailey.at/random/kaye.minesweeper.pdf}
+}
+
+@online{replit,
+    author = {ThomasS1},
+    title = {How to Program Minesweeper in Python},
+    year = {2018},
+    note = {https://repl.it/talk/learn/How-to-program-MineSweeper-in-Python-fully-explained-in-depth-tutorial/9397}
+}
+
+@online{minesweeperCSP,
+    author = {Studholme, Chris},
+    title = {Minesweeper as a Constraint Satisfaction Problem},
+    year = {2007},
+    note = {http://www.cs.us.es/cursos/ia1-2007/trabajos/trabajo-2/minesweeper-toronto.pdf}
+}
+
+@online{constraintBasedApproachtoMinesweeper,
+    author = {Ken Bayer, Josh Snyder, and Berthe Y. Choueiry},
+    title = {An Interactive Constraint-Based Approach to Minesweeper},
+    year = {unknown},
+    note = {https://www.aaai.org/Papers/AAAI/2006/AAAI06-344.pdf}
+}
+    
+    
+@online{minesweeperAI,
+    author = {Stanford University},
+    title = {Minesweeper AI},
+    year = {2018},
+    note = {http://web.stanford.edu/class/archive/cs/cs221/cs221.1192/2018/restricted/posters/thowarth/poster.pdf}
+}    

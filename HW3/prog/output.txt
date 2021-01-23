@@ -1,0 +1,42 @@
+Output and responses for programming questions
+
+1)
+[Backtracking Search] 
+4 queens:  {0: 1, 1: 3, 2: 0, 3: 2}
+12 queens:  {0: 0, 1: 2, 2: 4, 3: 7, 4: 9, 5: 11, 6: 5, 7: 10, 8: 1, 9: 6, 10: 8, 11: 3}
+20 queens:  {0: 0, 1: 2, 2: 4, 3: 1, 4: 3, 5: 12, 6: 14, 7: 11, 8: 17, 9: 19, 10: 16, 11: 8, 12: 15, 13: 18, 14: 7, 15: 9, 16: 6, 17: 13, 18: 5, 19: 10}
+
+
+2)
+[Backtracking Search- Forewards]
+4 queens:  {0: 1, 1: 3, 2: 0, 3: 2}
+12 queens:  {0: 0, 1: 2, 2: 4, 3: 7, 4: 9, 5: 11, 6: 5, 7: 10, 8: 1, 9: 6, 10: 8, 11: 3}
+20 queens:  {0: 0, 1: 2, 2: 4, 3: 1, 4: 3, 5: 12, 6: 14, 7: 11, 8: 17, 9: 19, 10: 16, 11: 8, 12: 15, 13: 18, 14: 7, 15: 9, 16: 6, 17: 13, 18: 5, 19: 10}
+
+
+3)
+[Map Coloring with Backtracking!!!!]
+{'SA': 'R', 'WA': 'G', 'NT': 'B', 'Q': 'G', 'NSW': 'B', 'V': 'G'}
+
+
+4)
+[Map Coloring with FOUR Colors!]
+{'SA': 'R', 'WA': 'G', 'NT': 'B', 'Q': 'G', 'NSW': 'B', 'V': 'G'}
+Only 3 colors needed since the 3/4 color solutions are the same every time
+
+
+5)
+[Map Coloring with TWO Colors!]
+None
+No solutions found for 2 color
+
+
+6)
+[Coloring w/ AC-3]
+(True, 18) 
+
+
+7)
+[United States Map w/ Backtracking]
+{'WA': 'R', 'OR': 'G', 'ID': 'B', 'NV': 'R', 'CA': 'B', 'AZ': 'G', 'UT': 'Y', 'MT': 'R', 'WY': 'G', 'CO': 'R', 'ND': 'G', 'SD': 'B', 'NE': 'Y', 'KA': 'G', 'OK': 'B', 'NM': 'Y', 'TX': 'R', 'MN': 'R', 'IA': 'G', 'MO': 'R', 'AR': 'G', 'LA': 'B', 'WI': 'B', 'IL': 'Y', 'KY': 'G', 'TN': 'B', 'MS': 'R', 'MI': 'R', 'IN': 'B', 'OH': 'Y', 'AL': 'G', 'GA': 'R', 'FL': 'B', 'PA': 'R', 'WV': 'B', 'VA': 'R', 'NC': 'G', 'SC': 'B', 'NY': 'G', 'NJ': 'B', 'DE': 'G', 'MD': 'Y', 'DC': 'G', 'VT': 'R', 'MA': 'B', 'CT': 'R', 'NH': 'G', 'RI': 'G', 'ME': 'R'}
+

@@ -1,0 +1,25 @@
+Nadya Postolaki
+In Class 8
+
+You are given these sentences: "If the maid stole the jewelry, then the butler is not guilty. Either the maid stole the jewelry, or she milked the cow. If the maid milked the cow, then the butler got the cream."
+
+1) Write the knowledge in propositional calculus, using the following propositions:
+MSJ (maid stole the jewelry), BG (butler is guilty), MMC (maid milked the cow), BGC (butler got the cream)
+	MSJ ⇒ ¬ BG
+
+	MSJ ∨ MMC
+
+	MMC ⇒ BGC
+
+2)Convert to CNF.
+	¬ MSJ ∨ ¬ BG 
+
+	MSJ ∨ MMC
+
+	¬ MMC ∨ BGC
+
+3)Prove by resolution with refutation "If the butler is guilty then he got the cream." Show the steps when you apply resolution, indicating the two clauses and the resolvent.
+	
+	BG ⇒ BGC
+--------------------------------
+	¬ BG ∨ BGC

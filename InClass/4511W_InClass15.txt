@@ -1,0 +1,38 @@
+Nadya Postolaki
+4511W
+In Class 15
+
+Represent the following information using a semantic network:
+
+"Clyde and Surus are elephants. Elephants are grey. Elephants carry large loads. Clyde carries a load smaller than Surus. Clyde and Surus crossed the Alps with Hannibal and his army. The Alps are mountains."
+
+Answer the following questions with a short explanation on how the answer is obtained:
+
+	1) do elephants cross mountains?
+		Yes because we know that Clyde and Surus are elephants and we know that they already crossed the Alps with Hannibal and his army. We also know that the Alps are mountains, therefore elephants cross mountains.
+		
+		Elephant(Clyde) ∧ Elephant(Surus)
+		Mountain(Alps)
+		Cross(Clyde, Alps) ∧ Cross(Clyde, Alps)
+		∃ e, m Elephant(e) ∧ Mountain(m) ∧ Cross(e, m)
+		
+		
+		(Large load carriers)
+			  ^
+			  | subset of
+			  |
+		+---->(Elephants)<----+
+		|      members of     |
+	     (Surus)		   (Clyde)
+		|		      |	
+		|     (Mountains)     |
+	crossed	|    	   ^	      | crossed
+		|	   | subset   |
+		|	   | of       |
+		+------->(Alps)<------+
+		
+		
+
+	2) can elephants tolerate cold temperatures?
+		No because nothing is written about the temperature in which Clyde and Surus reside in. We may know that mountains are cold, however nothing was represented about temperature so we cannot deduce whether elephants can tolerate cold temperatures
+	

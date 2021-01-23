@@ -1,0 +1,96 @@
+Your writing should be approximatively 500 words.
+
+When writing, avoid simply rehashing the abstract of the paper or writing many pages paraphrasing the paper. Use your own words and summarize the ideas presented in a clear and concise way. Make sure you understand the key concepts presented in the paper.
+
+Here are suggestions for what to cover in your summary/review:
+	What is the main topic of the paper?
+		The relationships between three approaches to greedy heuristic search.
+
+
+
+	How would you define the type of paper: is it proposing new methods or algorithms? looking at a new application area? or is it more like a tutorial on existing algorithms?
+		The paper looks at existing algorithms and compares three different types of greedy heuristic searches.
+
+
+
+	For what type of problems are the algorithms described appropriate?
+		best-first search (defined by a node ranking function which typically considers the cost of arriving at a node, g, as well as the estimated cost of reaching a goal from a node, h.) 
+		along with beam seach, they frequently provide a comparable time-solution quality trade off, with best-first having an advantage on problems where the goal cannot be reached from all states
+		In best first search nodes are expanded one at a time according to some definition of best.
+		Least oriented towards solving a problem as quickly as possible, so time is not the biggest concern for this algorithm.
+		Algorithm is complete or can be made complete, which in some cases expend effort to prove the quality of their solutions.
+		Completeness is the result of having an open list of unbounded size, and they only terminate when they have found a solution or they have emptied the entire open list.
+		Completeness allows these searches to avoid problems created by heuristic error and local extreme.
+		Considered best-first searches:
+			Weighted A* 			
+			Greedy best-first search
+			Window A*			
+			Multi-state commitment search (MSC-kwA*)
+			
+		The intuition behind all three algoritms is that the size of the relative search space can be reduced by defining a subset of the most promising nodes, and expanding only those nodes
+		
+		
+		
+		hill-climbing search (less deliberative; rather than considering all open nodes, they expand the most promising descendant of the most recently expanded node until they encounter a solution.) 
+		Expands one node at a time, beginning with the root, and each time expands only the best child of the previously expanded node.
+		
+		Two major drawwbacks: some lack a tunable parameter so that we can select an appropriate trade-off between speed and quality, and the algorithms are brittle, frequently failing to find solutions.
+		
+		Considered hill-climbing algorithms:
+			Enforced Hill-climbing
+			Real-time search
+			Depth-First Branch and Bound
+		
+		Issues with hill-climbing searches, they can end up in situations where they can no longer solve the problem, the result of early commitment. At every step, hill-climbing algorithms commit to a node, which sometimes causes early termination.
+		
+		
+		
+		beam search  (exist in between these families of algorithms, exploring a fraction of the space and pruning regions that appear less promising.)
+		has an advantage with better scaling behavior due to their bounded memory consumption.
+		Two general categories
+		In a best-first beam seach, the beam search is run just like a best-first search, except that when the open list grows beyond a predetermined size limit, the lowest quality nodes are removed from the open list until the open list is within its size bound.
+		The other is a breadth-first search, except at each depth layer a fixed number of nodes are expanded; the rest are pruned.
+
+
+
+
+	How do the authors validate their approach: experimentally or theoretically?
+		the study considers six standard benchmark domains: pathfinding in grids, the traveling salesman problem, dynamic robot pathfinding, the sliding tile puzzle, the pancake puzzle, and the vacuum-robot domain.	
+
+
+
+	Are the experimental results included in the paper sufficient to show the power of the algorithm? Are the datasets used in the experimental work available for others to use?
+
+		It is mentioned in the paper what kind of experiments were run, under what conditions they were run, and their results, found in the section Emperical Results on page 130 and 131 of the paper. It also includes how the quality of a solution is calculated which allows for others to replicate such experiments on their own, should they be interested in doing so. This is for best-first searches.
+
+
+	Are the conclusions supported by the results presented?
+
+
+
+	Is the paper clearly written and easy to follow? are the algorithms described clearly so it is possible to implement them and replicate the results?
+
+
+
+	What did you find most interesting aspect of the paper?
+
+
+
+
+
+You need to include in your paper at least 5 bibliographical references of the following five different types:
+
+
+a journal article
+
+When you look for references, make sure you check where the papers you cite were published, so you can include citations of all those different types. You can cite some of the references from the paper itslef, as long as you have all the five types listed above. You have to format the references using bibtex. You can look at http://www.andy-roberts.net/misc/latex/latextutorial3.html for details on how to do bibliographies in Latex.
+
+
+The writing has to be done using latex and bibtex. You need to submit the pdf file produced by latex and the bibtex file.
+
+
+Grading criteria:
+60% for the completeness of your summary. Use the suggestions above to make sure you address the many different aspects that are important in the paper;
+10% for expressing your own opinions on the strengths and weaknesses you see in the paper;
+10% for using latex and bibtex for the citations;
+20% for the quality of writing (spelling, grammar, clarity of expression, structure).

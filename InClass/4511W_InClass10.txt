@@ -1,0 +1,112 @@
+
+Nadya Postolaki
+4511W In Class Exercise 10
+
+This exercise is about resolution with predicate calculus.
+
+Q1: You are given the following sentences:
+Tweety is a bird. Goldie is a fish. Kitty is a cat. Cats like fish. Cats like birds. Kitty eats everything she likes.
+
+	write the sentences in predicate calculus and convert them to CNF.
+	use resolution with refutation to answer the  question "what does Kitty eat?"
+	If there are multiple answers, will resolution be able to find all of them?
+
+	Bird(b), Fish(f), Cat(c), Likes(c, x), Eats(c, y)
+
+	(1) Tweety is a bird
+		* There exists a bird, that bird is Tweety
+		* CNF: Bird(Tweety)
+	
+	(2) Goldie is a fish
+		* There exists a fish, that fish is Goldie
+		* CNF: Fish(Goldie)
+	
+	(3) Kitty is a cat
+		* There exists a cat, that cat is Kitty
+		* CNF: Cat(Kitty)
+	
+	(4) Cats like fish
+		* All cats like all fish (there does not exist a fish that a cat does not like)
+		* ∀c ∀f Cat(c) ∧ Fish(f) ⇒ Likes(c, f)
+		* ¬(Cat(c) ∧ Fish(f)) ∨  Likes(c, f)
+		* RESULTING CNF: ¬Cat(c) ∨ ¬Fish(f) ∨  Likes(c, f)
+	
+	(5) Cats like birds
+		* All cats like all birds (there does not exist a bird that a cat does not like)
+		* ∀c ∀b Cat(c) ∧ Bird(b) ⇒ Likes(c, b)
+		* ¬(Cat(c) ∧ Bird(b)) ∨  Likes(c, b)
+		* RESULTING CNF: ¬Cat(c) ∨ ¬Bird(b) ∨  Likes(c, b)
+	
+	(6) Kitty eats everything she likes
+		* There exist things that Kitty likes, and all things Kitty likes, Kitty eats.
+		* ∃y Likes(Kitty, y) ∧ ∀x (y = x) ⇒ Eats(Kitty, x)
+		* ¬(Likes(Kitty, y) ∧ (y = x)) ∨ Eats(Kitty, x)
+		* RESULTING CNF: ¬Likes(Kitty, y) ∨ ¬(y = x) ∨ Eats(Kitty, x)
+
+
+I'm a little stuck on resolution with refutation, but I will do my best:
+
+(Resolution):
+
+What does Kitty eat?
+
+We know that per (6) Kitty eats everything she likes ¬Likes(Kitty, y) ∨ ¬(y = x) ∨ Eats(Kitty, x). We know by (3) that Kitty is a cat, and cats like fish and birds (4 and 5). Per (3), we know that Kitty is a cat so that means that Kitty also likes fish and birds, per (4) and (5). Again going back to (6), we know that Kitty eats everything she likes, so with (4) and (5) we know that Kitty will eat fish and birds because she likes them. Since Tweety is a bird (1) and Goldie is a fish (2), and cats like bird and fish (4) (5), and Kitty is a cat (3), that means Kitty likes Tweety and Goldie, and therefore will eat them (6).
+
+
+(Refutation):
+
+What does Kitty eat?
+
+We will assume that Kitty will not eat Goldie nor Tweety.
+Goldie and Tweety are fish and bird respectively. (1) (2)
+Kitty is a cat (3)
+Cats like fish and cats like birds (4) (5)
+Since Kitty is a cat, we know that per (4) and (5), that Kitty likes birds and fish. And since Goldie is a fish and Tweety is a bird, we know that Kitty likes them.
+Kitty eats everything she likes (6), and we know that (3), (4), (5) that Kitty likes birds and fish, and per (1) and (2) that Goldie is a fish and Tweety is a bird, we know that Kitty will eat them, but this contradicts with the initial assumption that Kitty will not eat Goldie nor Tweety because we know that Kitty likes them and per (6) Kitty will eat them both.
+
+
+Q2:
+
+You are given the following knowledge base:
+	1. If an object is on another object, then that object supports it.
+	2. If an object is above another object and they are touching each other, then the first object is on the second.
+	3. A cup is above a book and the cup is touching the book.
+
+To simplify things, use  Cup and Book as constants. Use On, Above, Support, Touch as predicates.
+Write the knowledge base in predicate calculus, convert to CNF, and prove using resolution with refutation that "the book supports the cup”.
+
+	On(x, y), Above(x, y), Support(x, y), Touch(x, y)
+
+	(1) If an object is on another object, then that object supports it
+		* ∀x ∀y On(x, y) ⇒ Support(y, x)
+		* RESULTING CNF: ¬On(x, y) ∨ Support(y, x)
+	
+	
+	(2) If an object is above another object and they are touching each other, then the first object is on the second.
+		* ∀x ∀y Above(x, y) ∧ Touch(x, y) ⇒ On(x, y) 
+		* ¬(Above(x, y) ∧ Touch(x, y)) ∨ On(x, y)
+		* RESULTING CNF: ¬Above(x, y) ∨ ¬Touch(x, y) ∨ On(x, y)
+	
+	(3) A cup is above a book and the cup is touching the book.
+		* CNF: Above(Cup, Book) ∧ Touch(Cup, Book)
+
+
+	Above(Cup, Book) ∧ Touch(Cup, Book), per (2) since the cup is above the book, and the two are touching, we know by ¬Above(x, y) ∨ ¬Touch(x, y) ∨ On(x, y) that the cup is on the book. Then per (1), we know that since the cup is on the book, we know with ¬On(x, y) ∨ Support(y, x) that the book supports the cup.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

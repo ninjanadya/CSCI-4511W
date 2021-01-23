@@ -1,0 +1,31 @@
+Nadya Postolaki
+4511W
+In Class 16
+
+You are given the following knowledge: "Oscar is an ostrich.  An ostrich is a bird. Ostriches do not fly. Birds have two wings. Birds fly.  Birds are animals."
+
+	1)represent the knowledge in a semantic network.
+	
+			(Animal)
+			   ^
+			   |subset of
+			   |
+		(2)<----(Birds)---->(Fly)
+		wings      ^       ability
+			   |subset of
+			   |
+			(Ostrich)---->(Flightless)
+			   ^            ability
+			   |member of
+			   |
+			(Oscar)
+	
+	
+	2)write the knowledge in predicate calculus, using reification (as shown in the textbook introduction to Section 12.2).
+		Ostrich(x) ∧  x∈ Bird ⇒ x∈ Animal
+	
+	3)can you write in predicate calculus the rule of inheritance, so the system will be able infer the answer to a question such as "Does Oscar fly"? or "Is Oscar an animal?"
+		Ostrich(x) ∧ Flightless(x) ∧ Wings(2) ∧ x∈ Bird ⇒ x∈ Animal
+		
+	
+	

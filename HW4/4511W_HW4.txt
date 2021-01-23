@@ -1,0 +1,214 @@
+
+
+
+1)[15 points] Convert these English sentences to predicate calculus, using the following predicates: Student(x), Athlete(v), School(y), Class(z), InClass(x,z), Faster(x,w).
+	1) There is a class where all the students are athletes.
+		Objects: students
+		Property: athletes
+		Relation: class
+		(there exists: class => all: students = athletes)
+		
+		∃ z ∀ x ∀ v [Student(x) ∧ Class(z) ∧ InClass(x, z) ⇒ Athletes(v)]
+	
+	2) There is a class that has only one student.
+		Objects: student, class
+		Relation: inClass
+		(there exists: class: only one student InClass)
+		
+		∃ z ∀ x1 ∀ x2 [InClass(x1, z) ∧ InClass(x2, z) ⇒ Student(x1) = Student(x2)]
+	
+	3) Every school has a class where at least one student in the class is an athlete.
+		Objects: Student, class
+		Property: athlete
+		Relation: school
+		(every/all:school there exists:class at least one student = athlete)
+		
+		∀ y ∃ x ∃ z ∃ v [School(y) ⇒ (InClass(x, z) ∧ Athlete(v))]
+	
+	4) Not every student takes a Biology class.
+		Objects: students, class
+		(there exists: students take class(x, Biology), meaning that there there exists a student who took biology and is therefore in the class)
+		
+		∃ x [InClass(x, Biology)]
+	
+	5) John is faster than any other student in his class.
+		Objects: John, Students
+		Property: Faster
+		Relation: In class
+		
+		∀ x [Student(x) ^ ¬(x = John) ⇒ Faster(John, x)]		
+		
+
+2)[15 points] Specify if each of the following expressions represents correctly the corresponding English statement. If not explain why not and correct it.
+
+	1) There is a cat in each house.
+	∀ x ∀ y [House(x) ∧ Cat(y) ⇒ In(y,x)]
+		This statement is incorrect because the sentence claims there is A CAT, meaning AT LEAST one cat, whereas the expression shows that ALL cats are in every house. The correct expression would be as such:
+		∀ x ∃ y [House(x) ∧ Cat(y) ⇒ In(y,x)]
+
+
+	2) Every cat owner loves all animals.
+	∃ x ∃ y [Person(x) ∧ Cat(y) ∧ Owns(x,y)] ∧ ∀ z [Animal(z) ⇒ Loves(x,z)]
+		This statement is incorrect because a similar mistake as the one prior to this one. The sentence calls for ALL cat owners, where the expression says there exists at least one, implying that NOT ALL people are needed. The correct expression would be written as so:
+		∀ x ∃ y [Person(x) ∧ Cat(y) ∧ Owns(x,y)] ∧ ∀ z [Animal(z) ⇒ Loves(x,z)]
+
+	3) Cats catch birds.
+	∀ x ∃ y Cat(x) ∧ Bird(y) ∧ Catch(x,y)]
+		This statement is written correctly.
+
+
+	4) Birds live in all cities.
+	∀ x City(x) ∧ ∃ y Bird(y) ∧ Livesin(y,x)
+		This statement is also written correctly.
+
+	5) Anyone who owns a bird does not own any cat.
+	∀ x ∀ y ∀ z Person(x) ∧ Bird(y) ∧ Cat(z) ∧ Own(x,y) ∧ ¬ Own(x,z)
+		This statement is incorrect because it should imply that perople who own birds do not own cats as well as the pact that all people that own birds, own at least one bird, likewise with the cat, there does not exist a single cat that the bird owners would own which is why I switched the negation around.
+		∀ x ∃ y ¬ ∃ z Person(x) ∧ Bird(y) ∧ Cat(z) ∧ Own(x,y) ⇒  Own(x,z)
+
+
+3)[10 points] Write the following sentences in English, making clear what are the differences between them:
+	1) ∀ x ∃ y Class(x) ⇒ Student(y) ∧ In(y,x)
+		Every class has at least one student in it.
+	
+	2) ∃ y ∀ x Student(y) ∧ Class(x) ⇒ In(y,x)
+		In each class, there is at least one student.
+	
+	3) ∃ x ∃ y Class(x) ∧ Student(y) ∧ In(y,x)
+		There are some classes that have at least one student in them.
+	
+	4) ∀ x ∀ y Class(x) ∧ Student(y) ⇒ In(y,x)
+		All students are in every class. 
+	
+	5) ∀ x ∀ y Class(x) ∧ Student(y) ∧ In(y,x)
+		Every class has every student in it.
+
+
+4)[10 points] Convert to following expressions to CNF
+	1) (B ∨ (A ∧ C)) ⇒ (B ∨ ¬ A)
+		('*' indicate steps taken; this is for me to visualize)
+		* ¬(B ∨ (A ∧ C)) ∨ (B ∨ ¬ A)
+		* (¬B ∧ ¬(A ∧ C)) ∨ (B ∨ ¬ A)
+		* (¬B ∧ (¬A ∨ ¬C)) ∨ (B ∨ ¬ A)
+		* RESULT: (¬B ∧ ¬A) ∨ (¬B ∧ ¬C) ∨ (B ∨ ¬ A)
+		
+	
+	2) ∀ p [[Pet(p) ∧ ∃ c [Owner(c,p) ∨ Feeds(c,p)]] ⇒ Happy(p)
+		* ∀ p [¬[Pet(p) ∧ ∃ c [Owner(c,p) ∨ Feeds(c,p)]] ∨ Happy(p)
+		* ∀ p [[¬Pet(p) ∨ ∀ c ¬[Owner(c,p) ∨ Feeds(c,p)]] ∨ Happy(p)
+		* ∀ p [[¬Pet(p) ∨ ∀ c [¬Owner(c,p) ∧ ¬Feeds(c,p)]] ∨ Happy(p)
+		* RESULT: ∀ p ∀ c [¬Pet(p) ∨ ¬Owner(c,p)] ∧ [¬Pet(p) ∨ ¬Feeds(c,p)] ∨ Happy(p)
+		* (∀ p ∀ c can be dropped)
+	
+	
+	3) ∀ x ∃ y ∀ z [P(x,y,z) ⇒ [∃ u Q(x,u)]]
+		* RESULT: ∀ x ∃ y ∀ z [¬P(x,y,z) ∨ [∃ u Q(x,u)]]
+	
+	
+	
+5)[15 points]
+	1) This question requires to use resolution for propositional logic. First, convert the following sentences to CNF:
+		1) ¬ A ⇒ B ∨ C
+			* ¬(¬ A) ∨ B ∨ C
+			* RESULT: A ∨ B ∨ C
+		
+		2) A ⇒ B
+			* RESULT: ¬ A ∨ B
+		
+		3) ¬ (¬ B ⇒ D)
+			* ¬ (¬(¬ B) ∨ D)
+			* ¬ (B ∨ D)
+			* ¬ B ∧ ¬ D		
+		
+
+	2) Prove "C ∧ ¬ D" using resolution with refutation. Show the steps in the resolution proof.
+		C ∧ ¬ D is already in CNF form
+		Assume D to be false, this leads to a contradiction with C which is a known axiom.	
+		* ¬(C ∧ ¬ D)
+		* ¬C ∨ ¬(¬ D)
+		* ¬C ∨ D
+		
+			Since we know (1) is A ∨ B ∨ C and (2) ¬ A ∨ B, we can reduce those two into (4) B V C because A cannot exist at the same time as ¬ A
+			likewise (3) is ¬ B ∧ ¬ D and ¬ B cannot exist with B, so reduce to (5) C ∧ ¬ D
+			
+	
+
+6)[15 points]
+	1) Represent the following sentences in predicate calculus, using the predicates Cat(x), Bird(y), Eat(x,y), and Hate(x,y).
+		1) Bill hates cats who eat birds.
+			(all cats that eat some birds, bill hates)
+			∀ x ∃ y Cat(x) ∧ Bird(y) ^ Eat(x, y) ⇒ Hate(Bill, x)
+		
+		2) Felix is a cat.
+			∃ x Cat(x) ∧ (Felix = Cat(x))
+		
+		
+		3) Felix ate a bird.
+			∃ y Bird(y) ^ Eat(Felix, y)
+		
+		
+
+	2) Convert each of them to conjunctive normal form.
+		1) ∀ x ∃ y (Cat(x) ∧ Bird(y) ∧ Eat(x, y)) ⇒ Hate(Bill, x)
+			* ∀ x ∃ y ¬(Cat(x) ∧ Bird(y) ∧ Eat(x, y)) ∨ Hate(Bill, x)
+			* ∀ x ∃ y ¬Cat(x) ∨ ¬Bird(y) ∨ ¬Eat(x, y) ∨ Hate(Bill, x)
+			* ¬Cat(x) ∨ ¬Bird(H(x)) ∨ ¬Eat(x, H(x)) ∨ Hate(Bill, x)
+		
+		2) ∃ x Cat(x) ∧ (Felix = Cat(x))
+			* Felix = Cat
+		
+		3) ∃ y Bird(y) ^ Eat(Felix, y)
+			* already in CNF
+
+	3) Prove by resolution that "Bill hates Felix."
+		*We know that by (2) that Felix is a cat
+		*When we place Felix in place of the cat in (1) with just the knowlege of (2), we know that Bill does not hate Felix because he does not yet know whether Felix ate a bird.
+		*We then know that Felix ate at least one bird
+		*When we place felix in place of the cat in (1) with the knowlege that (2) Felix is a cat, and (3) Felix ate a bird, we know that all the statements that make Bill hate bird-eating cats true, therefore Bill hates Felix because Bill hates cats that eat birds and Felix is a cat that had eaten a bird.
+
+7)[20 points]
+	1) What is a Horn clause? why are Horn clauses important?
+		A Horn clause is slightly more general form of a definite clause, a disjunction of literals of which at most one is positive. (All definite clauses are Horn clausses, as are clauses with no positive literals). Horn clauses are closed under resolution: if you resolve two Horn clauses, you get back a Horn clause. (pg 256 textbook) 
+		* Horn clauses are important for constructive logic. 
+		* Every difinite clause can be written as an implication whose premise is a conjunction of positive literals and whose conclusion is a single positive literal. 
+		* Inference with Horn clauses can be done through the forward-chaining and backward-chaining algorithms. 
+		* Deciding entailment with Horn clauses can be done in time that is linear in the size of the knowlege base.
+
+
+	2) Is Modus Ponens in propositional calculus complete? What does completeness mean?
+		α ⇒ β, α
+		_________ .	(meaning whenever sentences of the form α ⇒ β and α are given, then 
+			β		(β can be inferred))
+
+		Propositional calculus/logic is complete with respect to certain properties if every sentence having the property can be derived using that rule or theorem. (if it can derive any sentence that is entailed)
+		By the definition above, we know that Modus Ponens is complete as well as sound (derives only entailed sentences), because it only derives true sentences and can derive a true sentence that a knowlege base of the form entails.
+
+
+	3) Entailment in propositional calculus is decidable, but in predicate calculus it is only semidecidable. What does it mean? Be precise.
+		We can start by defining entailment: the idea that a sentence follows logically from another sentence. Written mathematically as so: α |= β. The formal definition of entailment is α |= β if and only if, in every model which α is true, β is also true, which can be written as 
+		α |= β if and only if M(α) ⊆ M(β).
+		
+		Propositional logic is decidable because we can use truth tables to determine whether some propositional formula is logically valid. Predicate calculus (or first-order calculus) is semidecidable because algorithms exist that say yes to every entailed sentence, but no algorithm esists that also says no to every nonentailed sentence. (Turing 1936, Church 1936).
+		
+		
+	4) Suppose you use resolution with refutation to prove that α ⊨ β. Does is mean that β is valid? If not, why not?
+		As mentioned in page 250, proving β from α by checking the unsatisfiability of (α ∧ ¬β) corresponds exactly to the standard mathematical proof technique of proof by refutation, where 
+		α |= β if and only if the sentence (α ∧ ¬β) is unsatisfiable.
+		Validity of a sentence if it is true in all models (also known as a tautology).
+		Since we discribed entailment α |= β if and only if M(α) ⊆ M(β) in the last question, we know that α is a stronger assertion than β due to the direction of the ⊆. (The statement is only true if in every model α is true, then β is also true.) β is not valid because it doesn't necessarily have to be true everytime in all models on its own, however if in forms of α ⊨ β, β will be valid.
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+

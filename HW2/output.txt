@@ -1,0 +1,3742 @@
+python3 -m doctest -v *.py
+Trying:
+    a = ReflexVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    a.program((loc_A, 'Clean'))
+Expecting:
+    'Right'
+ok
+Trying:
+    a.program((loc_B, 'Clean'))
+Expecting:
+    'Left'
+ok
+Trying:
+    a.program((loc_A, 'Dirty'))
+Expecting:
+    'Suck'
+ok
+Trying:
+    a.program((loc_A, 'Dirty'))
+Expecting:
+    'Suck'
+ok
+Trying:
+    e = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    e.add_thing(ModelBasedVacuumAgent())
+Expecting nothing
+ok
+Trying:
+    e.run(5)
+Expecting nothing
+ok
+Trying:
+    d = Direction('right')
+Expecting nothing
+ok
+Trying:
+    l1 = d.__add__(Direction.L)
+Expecting nothing
+ok
+Trying:
+    l2 = d.__add__(Direction.R)
+Expecting nothing
+ok
+Trying:
+    l1.direction
+Expecting:
+    'up'
+ok
+Trying:
+    l2.direction
+Expecting:
+    'down'
+ok
+Trying:
+    d = Direction('down')
+Expecting nothing
+ok
+Trying:
+    l1 = d.__add__('right')
+Expecting nothing
+ok
+Trying:
+    l2 = d.__add__('left')
+Expecting nothing
+ok
+Trying:
+    l1.direction == Direction.L
+Expecting:
+    True
+ok
+Trying:
+    l2.direction == Direction.R
+Expecting:
+    True
+ok
+Trying:
+    d = Direction('up')
+Expecting nothing
+ok
+Trying:
+    l1 = d.move_forward((0, 0))
+Expecting nothing
+ok
+Trying:
+    l1
+Expecting:
+    (0, -1)
+ok
+Trying:
+    d = Direction(Direction.R)
+Expecting nothing
+ok
+Trying:
+    l1 = d.move_forward((0, 0))
+Expecting nothing
+ok
+Trying:
+    l1
+Expecting:
+    (1, 0)
+ok
+Trying:
+    agent = ModelBasedVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1,0):'Clean' , (0,0) : 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    list = ['Right', 'Left', 'Suck', 'NoOp']
+Expecting nothing
+ok
+Trying:
+    program = RandomAgentProgram(list)
+Expecting nothing
+ok
+Trying:
+    agent = Agent(program)
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1, 0): 'Clean' , (0, 0): 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    agent = RandomVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1,0):'Clean' , (0,0) : 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    agent = ReflexVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1,0):'Clean' , (0,0) : 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    agent = TableDrivenVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1,0):'Clean' , (0,0) : 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    environment = TrivialVacuumEnvironment
+Expecting nothing
+ok
+Trying:
+    agents = [ModelBasedVacuumAgent, ReflexVacuumAgent]
+Expecting nothing
+ok
+Trying:
+    result = compare_agents(environment, agents)
+Expecting nothing
+ok
+Trying:
+    performance_ModelBasedVacuumAgent = result[0][1]
+Expecting nothing
+ok
+Trying:
+    performance_ReflexVacuumAgent = result[1][1]
+Expecting nothing
+ok
+Trying:
+    performance_ReflexVacuumAgent <= performance_ModelBasedVacuumAgent
+Expecting:
+    True
+ok
+Trying:
+    def constant_prog(percept):
+        return percept
+Expecting nothing
+ok
+Trying:
+    agent = Agent(constant_prog)
+Expecting nothing
+ok
+Trying:
+    result = agent.program(5)
+Expecting nothing
+ok
+Trying:
+    result == 5
+Expecting:
+    True
+ok
+91 items had no tests:
+    agents4e.Agent
+    agents4e.Agent.__init__
+    agents4e.Agent.can_grab
+    agents4e.Arrow
+    agents4e.Breeze
+    agents4e.Bump
+    agents4e.ContinuousWorld
+    agents4e.ContinuousWorld.__init__
+    agents4e.ContinuousWorld.add_obstacle
+    agents4e.Direction
+    agents4e.Direction.__init__
+    agents4e.Dirt
+    agents4e.Environment
+    agents4e.Environment.__init__
+    agents4e.Environment.add_thing
+    agents4e.Environment.default_location
+    agents4e.Environment.delete_thing
+    agents4e.Environment.execute_action
+    agents4e.Environment.exogenous_change
+    agents4e.Environment.is_done
+    agents4e.Environment.list_things_at
+    agents4e.Environment.percept
+    agents4e.Environment.run
+    agents4e.Environment.some_things_at
+    agents4e.Environment.step
+    agents4e.Environment.thing_classes
+    agents4e.Explorer
+    agents4e.Explorer.can_grab
+    agents4e.Glitter
+    agents4e.Gold
+    agents4e.Gold.__eq__
+    agents4e.GraphicEnvironment
+    agents4e.GraphicEnvironment.__init__
+    agents4e.GraphicEnvironment.conceal
+    agents4e.GraphicEnvironment.draw_world
+    agents4e.GraphicEnvironment.get_world
+    agents4e.GraphicEnvironment.reveal
+    agents4e.GraphicEnvironment.run
+    agents4e.GraphicEnvironment.update
+    agents4e.ModelBasedReflexAgentProgram
+    agents4e.Obstacle
+    agents4e.Pit
+    agents4e.PolygonObstacle
+    agents4e.PolygonObstacle.__init__
+    agents4e.Scream
+    agents4e.SimpleReflexAgentProgram
+    agents4e.Stench
+    agents4e.TableDrivenAgentProgram
+    agents4e.Thing
+    agents4e.Thing.__repr__
+    agents4e.Thing.display
+    agents4e.Thing.is_alive
+    agents4e.Thing.show_state
+    agents4e.TraceAgent
+    agents4e.TrivialVacuumEnvironment
+    agents4e.TrivialVacuumEnvironment.__init__
+    agents4e.TrivialVacuumEnvironment.default_location
+    agents4e.TrivialVacuumEnvironment.execute_action
+    agents4e.TrivialVacuumEnvironment.percept
+    agents4e.TrivialVacuumEnvironment.thing_classes
+    agents4e.VacuumEnvironment
+    agents4e.VacuumEnvironment.__init__
+    agents4e.VacuumEnvironment.execute_action
+    agents4e.VacuumEnvironment.percept
+    agents4e.VacuumEnvironment.thing_classes
+    agents4e.Wall
+    agents4e.Wumpus
+    agents4e.WumpusEnvironment
+    agents4e.WumpusEnvironment.__init__
+    agents4e.WumpusEnvironment.execute_action
+    agents4e.WumpusEnvironment.get_world
+    agents4e.WumpusEnvironment.in_danger
+    agents4e.WumpusEnvironment.init_world
+    agents4e.WumpusEnvironment.is_done
+    agents4e.WumpusEnvironment.percept
+    agents4e.WumpusEnvironment.percepts_from
+    agents4e.XYEnvironment
+    agents4e.XYEnvironment.__init__
+    agents4e.XYEnvironment.add_observer
+    agents4e.XYEnvironment.add_thing
+    agents4e.XYEnvironment.add_walls
+    agents4e.XYEnvironment.default_location
+    agents4e.XYEnvironment.delete_thing
+    agents4e.XYEnvironment.execute_action
+    agents4e.XYEnvironment.is_inbounds
+    agents4e.XYEnvironment.move_to
+    agents4e.XYEnvironment.percept
+    agents4e.XYEnvironment.random_location_inbounds
+    agents4e.XYEnvironment.things_near
+    agents4e.XYEnvironment.turn_heading
+    agents4e.rule_match
+10 items passed all tests:
+   8 tests in agents4e
+  10 tests in agents4e.Direction.__add__
+   6 tests in agents4e.Direction.move_forward
+   5 tests in agents4e.ModelBasedVacuumAgent
+   7 tests in agents4e.RandomAgentProgram
+   5 tests in agents4e.RandomVacuumAgent
+   5 tests in agents4e.ReflexVacuumAgent
+   5 tests in agents4e.TableDrivenVacuumAgent
+   6 tests in agents4e.compare_agents
+   4 tests in agents4e.test_agent
+61 tests in 101 items.
+61 passed and 0 failed.
+Test passed.
+Trying:
+    a = ReflexVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    a.program((loc_A, 'Clean'))
+Expecting:
+    'Right'
+ok
+Trying:
+    a.program((loc_B, 'Clean'))
+Expecting:
+    'Left'
+ok
+Trying:
+    a.program((loc_A, 'Dirty'))
+Expecting:
+    'Suck'
+ok
+Trying:
+    a.program((loc_A, 'Dirty'))
+Expecting:
+    'Suck'
+ok
+Trying:
+    e = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    e.add_thing(ModelBasedVacuumAgent())
+Expecting nothing
+ok
+Trying:
+    e.run(5)
+Expecting nothing
+ok
+Trying:
+    d = Direction('right')
+Expecting nothing
+ok
+Trying:
+    l1 = d.__add__(Direction.L)
+Expecting nothing
+ok
+Trying:
+    l2 = d.__add__(Direction.R)
+Expecting nothing
+ok
+Trying:
+    l1.direction
+Expecting:
+    'up'
+ok
+Trying:
+    l2.direction
+Expecting:
+    'down'
+ok
+Trying:
+    d = Direction('down')
+Expecting nothing
+ok
+Trying:
+    l1 = d.__add__('right')
+Expecting nothing
+ok
+Trying:
+    l2 = d.__add__('left')
+Expecting nothing
+ok
+Trying:
+    l1.direction == Direction.L
+Expecting:
+    True
+ok
+Trying:
+    l2.direction == Direction.R
+Expecting:
+    True
+ok
+Trying:
+    d = Direction('up')
+Expecting nothing
+ok
+Trying:
+    l1 = d.move_forward((0, 0))
+Expecting nothing
+ok
+Trying:
+    l1
+Expecting:
+    (0, -1)
+ok
+Trying:
+    d = Direction(Direction.R)
+Expecting nothing
+ok
+Trying:
+    l1 = d.move_forward((0, 0))
+Expecting nothing
+ok
+Trying:
+    l1
+Expecting:
+    (1, 0)
+ok
+Trying:
+    agent = ModelBasedVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1,0):'Clean' , (0,0) : 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    list = ['Right', 'Left', 'Suck', 'NoOp']
+Expecting nothing
+ok
+Trying:
+    program = RandomAgentProgram(list)
+Expecting nothing
+ok
+Trying:
+    agent = Agent(program)
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1, 0): 'Clean' , (0, 0): 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    agent = RandomVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1,0):'Clean' , (0,0) : 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    agent = ReflexVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1,0):'Clean' , (0,0) : 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    agent = TableDrivenVacuumAgent()
+Expecting nothing
+ok
+Trying:
+    environment = TrivialVacuumEnvironment()
+Expecting nothing
+ok
+Trying:
+    environment.add_thing(agent)
+Expecting nothing
+ok
+Trying:
+    environment.run()
+Expecting nothing
+ok
+Trying:
+    environment.status == {(1,0):'Clean' , (0,0) : 'Clean'}
+Expecting:
+    True
+ok
+Trying:
+    environment = TrivialVacuumEnvironment
+Expecting nothing
+ok
+Trying:
+    agents = [ModelBasedVacuumAgent, ReflexVacuumAgent]
+Expecting nothing
+ok
+Trying:
+    result = compare_agents(environment, agents)
+Expecting nothing
+ok
+Trying:
+    performance_ModelBasedVacuumAgent = result[0][1]
+Expecting nothing
+ok
+Trying:
+    performance_ReflexVacuumAgent = result[1][1]
+Expecting nothing
+ok
+Trying:
+    performance_ReflexVacuumAgent <= performance_ModelBasedVacuumAgent
+Expecting:
+    True
+ok
+Trying:
+    def constant_prog(percept):
+        return percept
+Expecting nothing
+ok
+Trying:
+    agent = Agent(constant_prog)
+Expecting nothing
+ok
+Trying:
+    result = agent.program(5)
+Expecting nothing
+ok
+Trying:
+    result == 5
+Expecting:
+    True
+ok
+91 items had no tests:
+    agents.Agent
+    agents.Agent.__init__
+    agents.Agent.can_grab
+    agents.Arrow
+    agents.Breeze
+    agents.Bump
+    agents.ContinuousWorld
+    agents.ContinuousWorld.__init__
+    agents.ContinuousWorld.add_obstacle
+    agents.Direction
+    agents.Direction.__init__
+    agents.Dirt
+    agents.Environment
+    agents.Environment.__init__
+    agents.Environment.add_thing
+    agents.Environment.default_location
+    agents.Environment.delete_thing
+    agents.Environment.execute_action
+    agents.Environment.exogenous_change
+    agents.Environment.is_done
+    agents.Environment.list_things_at
+    agents.Environment.percept
+    agents.Environment.run
+    agents.Environment.some_things_at
+    agents.Environment.step
+    agents.Environment.thing_classes
+    agents.Explorer
+    agents.Explorer.can_grab
+    agents.Glitter
+    agents.Gold
+    agents.Gold.__eq__
+    agents.GraphicEnvironment
+    agents.GraphicEnvironment.__init__
+    agents.GraphicEnvironment.conceal
+    agents.GraphicEnvironment.draw_world
+    agents.GraphicEnvironment.get_world
+    agents.GraphicEnvironment.reveal
+    agents.GraphicEnvironment.run
+    agents.GraphicEnvironment.update
+    agents.ModelBasedReflexAgentProgram
+    agents.Obstacle
+    agents.Pit
+    agents.PolygonObstacle
+    agents.PolygonObstacle.__init__
+    agents.Scream
+    agents.SimpleReflexAgentProgram
+    agents.Stench
+    agents.TableDrivenAgentProgram
+    agents.Thing
+    agents.Thing.__repr__
+    agents.Thing.display
+    agents.Thing.is_alive
+    agents.Thing.show_state
+    agents.TraceAgent
+    agents.TrivialVacuumEnvironment
+    agents.TrivialVacuumEnvironment.__init__
+    agents.TrivialVacuumEnvironment.default_location
+    agents.TrivialVacuumEnvironment.execute_action
+    agents.TrivialVacuumEnvironment.percept
+    agents.TrivialVacuumEnvironment.thing_classes
+    agents.VacuumEnvironment
+    agents.VacuumEnvironment.__init__
+    agents.VacuumEnvironment.execute_action
+    agents.VacuumEnvironment.percept
+    agents.VacuumEnvironment.thing_classes
+    agents.Wall
+    agents.Wumpus
+    agents.WumpusEnvironment
+    agents.WumpusEnvironment.__init__
+    agents.WumpusEnvironment.execute_action
+    agents.WumpusEnvironment.get_world
+    agents.WumpusEnvironment.in_danger
+    agents.WumpusEnvironment.init_world
+    agents.WumpusEnvironment.is_done
+    agents.WumpusEnvironment.percept
+    agents.WumpusEnvironment.percepts_from
+    agents.XYEnvironment
+    agents.XYEnvironment.__init__
+    agents.XYEnvironment.add_observer
+    agents.XYEnvironment.add_thing
+    agents.XYEnvironment.add_walls
+    agents.XYEnvironment.default_location
+    agents.XYEnvironment.delete_thing
+    agents.XYEnvironment.execute_action
+    agents.XYEnvironment.is_inbounds
+    agents.XYEnvironment.move_to
+    agents.XYEnvironment.percept
+    agents.XYEnvironment.random_location_inbounds
+    agents.XYEnvironment.things_near
+    agents.XYEnvironment.turn_heading
+    agents.rule_match
+10 items passed all tests:
+   8 tests in agents
+  10 tests in agents.Direction.__add__
+   6 tests in agents.Direction.move_forward
+   5 tests in agents.ModelBasedVacuumAgent
+   7 tests in agents.RandomAgentProgram
+   5 tests in agents.RandomVacuumAgent
+   5 tests in agents.ReflexVacuumAgent
+   5 tests in agents.TableDrivenVacuumAgent
+   6 tests in agents.compare_agents
+   4 tests in agents.test_agent
+61 tests in 101 items.
+61 passed and 0 failed.
+Test passed.
+Trying:
+    len(backtracking_search(NQueensCSP(8)))
+Expecting:
+    8
+ok
+Trying:
+    e = Sudoku(easy1)
+Expecting nothing
+ok
+Trying:
+    e.display(e.infer_assignment())
+Expecting:
+    . . 3 | . 2 . | 6 . .
+    9 . . | 3 . 5 | . . 1
+    . . 1 | 8 . 6 | 4 . .
+    ------+-------+------
+    . . 8 | 1 . 2 | 9 . .
+    7 . . | . . . | . . 8
+    . . 6 | 7 . 8 | 2 . .
+    ------+-------+------
+    . . 2 | 6 . 9 | 5 . .
+    8 . . | 2 . 3 | . . 9
+    . . 5 | . 1 . | 3 . .
+ok
+Trying:
+    AC3(e); e.display(e.infer_assignment())
+Expecting:
+    (True, 6925)
+    4 8 3 | 9 2 1 | 6 5 7
+    9 6 7 | 3 4 5 | 8 2 1
+    2 5 1 | 8 7 6 | 4 9 3
+    ------+-------+------
+    5 4 8 | 1 3 2 | 9 7 6
+    7 2 9 | 5 6 4 | 1 3 8
+    1 3 6 | 7 9 8 | 2 4 5
+    ------+-------+------
+    3 7 2 | 6 8 9 | 5 1 4
+    8 1 4 | 2 5 3 | 7 6 9
+    6 9 5 | 4 1 7 | 3 8 2
+ok
+Trying:
+    h = Sudoku(harder1)
+Expecting nothing
+ok
+Trying:
+    backtracking_search(h, select_unassigned_variable=mrv, inference=forward_checking) is not None
+Expecting:
+    True
+ok
+Trying:
+    d = UniversalDict(42)
+Expecting nothing
+ok
+Trying:
+    d['life']
+Expecting:
+    42
+ok
+Trying:
+    parse_neighbors('X: Y Z; Y: Z') == {'Y': ['X', 'Z'], 'X': ['Y', 'Z'], 'Z': ['X', 'Y']}
+Expecting:
+    True
+ok
+95 items had no tests:
+    csp
+    csp.AC3
+    csp.AC3b
+    csp.AC4
+    csp.ACSearchSolver
+    csp.ACSearchSolver.__init__
+    csp.ACSearchSolver.actions
+    csp.ACSearchSolver.goal_test
+    csp.ACSearchSolver.result
+    csp.ACSolver
+    csp.ACSolver.GAC
+    csp.ACSolver.__init__
+    csp.ACSolver.any_holds
+    csp.ACSolver.domain_splitting
+    csp.ACSolver.new_to_do
+    csp.CSP
+    csp.CSP.__init__
+    csp.CSP.actions
+    csp.CSP.assign
+    csp.CSP.choices
+    csp.CSP.conflicted_vars
+    csp.CSP.display
+    csp.CSP.goal_test
+    csp.CSP.infer_assignment
+    csp.CSP.nconflicts
+    csp.CSP.prune
+    csp.CSP.restore
+    csp.CSP.result
+    csp.CSP.support_pruning
+    csp.CSP.suppose
+    csp.CSP.unassign
+    csp.Constraint
+    csp.Constraint.__init__
+    csp.Constraint.__repr__
+    csp.Constraint.holds
+    csp.Crossword
+    csp.Crossword.__init__
+    csp.Crossword.display
+    csp.Kakuro
+    csp.Kakuro.__init__
+    csp.Kakuro.display
+    csp.MapColoringCSP
+    csp.NQueensCSP.__init__
+    csp.NQueensCSP.assign
+    csp.NQueensCSP.display
+    csp.NQueensCSP.nconflicts
+    csp.NQueensCSP.record_conflict
+    csp.NQueensCSP.unassign
+    csp.NaryCSP
+    csp.NaryCSP.__init__
+    csp.NaryCSP.__str__
+    csp.NaryCSP.consistent
+    csp.NaryCSP.display
+    csp.Sudoku.__init__
+    csp.Sudoku.display
+    csp.UniversalDict.__getitem__
+    csp.UniversalDict.__init__
+    csp.UniversalDict.__repr__
+    csp.Zebra
+    csp.ac_search_solver
+    csp.ac_solver
+    csp.adjacent_constraint
+    csp.all_diff_constraint
+    csp.assign_value
+    csp.backtracking_search
+    csp.build_topological
+    csp.different_values_constraint
+    csp.dom_j_up
+    csp.first_unassigned_variable
+    csp.flatten
+    csp.forward_checking
+    csp.is_constraint
+    csp.is_word_constraint
+    csp.lcv
+    csp.mac
+    csp.make_arc_consistent
+    csp.meet_at_constraint
+    csp.min_conflicts
+    csp.min_conflicts_value
+    csp.mrv
+    csp.ne_constraint
+    csp.no_arc_heuristic
+    csp.no_heuristic
+    csp.no_inference
+    csp.num_legal_values
+    csp.partition
+    csp.partition_domain
+    csp.queen_constraint
+    csp.revise
+    csp.sat_up
+    csp.solve_zebra
+    csp.sum_constraint
+    csp.topological_sort
+    csp.tree_csp_solver
+    csp.unordered_domain_values
+4 items passed all tests:
+   1 tests in csp.NQueensCSP
+   5 tests in csp.Sudoku
+   2 tests in csp.UniversalDict
+   1 tests in csp.parse_neighbors
+9 tests in 99 items.
+9 passed and 0 failed.
+Test passed.
+Using TensorFlow backend.
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:541: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:542: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:543: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:544: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/ninjanadya/.local/lib/python3.6/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:550: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+34 items had no tests:
+    deep_learning4e
+    deep_learning4e.AutoencoderLearner
+    deep_learning4e.BackPropagation
+    deep_learning4e.BatchNormalizationLayer
+    deep_learning4e.BatchNormalizationLayer.__init__
+    deep_learning4e.BatchNormalizationLayer.forward
+    deep_learning4e.ConvLayer1D
+    deep_learning4e.ConvLayer1D.__init__
+    deep_learning4e.ConvLayer1D.forward
+    deep_learning4e.DenseLayer
+    deep_learning4e.DenseLayer.__init__
+    deep_learning4e.DenseLayer.forward
+    deep_learning4e.InputLayer
+    deep_learning4e.InputLayer.__init__
+    deep_learning4e.InputLayer.forward
+    deep_learning4e.Layer
+    deep_learning4e.Layer.__init__
+    deep_learning4e.Layer.forward
+    deep_learning4e.MaxPoolingLayer1D
+    deep_learning4e.MaxPoolingLayer1D.__init__
+    deep_learning4e.MaxPoolingLayer1D.forward
+    deep_learning4e.NeuralNetLearner
+    deep_learning4e.Node
+    deep_learning4e.Node.__init__
+    deep_learning4e.OutputLayer
+    deep_learning4e.OutputLayer.__init__
+    deep_learning4e.OutputLayer.forward
+    deep_learning4e.PerceptronLearner
+    deep_learning4e.SimpleRNNLearner
+    deep_learning4e.adam
+    deep_learning4e.get_batch
+    deep_learning4e.init_examples
+    deep_learning4e.keras_dataset_loader
+    deep_learning4e.stochastic_gradient_descent
+0 tests in 34 items.
+0 passed and 0 failed.
+Test passed.
+76 items had no tests:
+    games4e
+    games4e.Backgammon
+    games4e.Backgammon.__init__
+    games4e.Backgammon.actions
+    games4e.Backgammon.chances
+    games4e.Backgammon.checkers_at_home
+    games4e.Backgammon.compute_utility
+    games4e.Backgammon.display
+    games4e.Backgammon.get_all_moves
+    games4e.Backgammon.is_legal_move
+    games4e.Backgammon.is_point_open
+    games4e.Backgammon.move_checker
+    games4e.Backgammon.outcome
+    games4e.Backgammon.probability
+    games4e.Backgammon.result
+    games4e.Backgammon.terminal_test
+    games4e.Backgammon.utility
+    games4e.ConnectFour
+    games4e.ConnectFour.__init__
+    games4e.ConnectFour.actions
+    games4e.Fig52Extended
+    games4e.Fig52Extended.actions
+    games4e.Fig52Extended.result
+    games4e.Fig52Extended.terminal_test
+    games4e.Fig52Extended.to_move
+    games4e.Fig52Extended.utility
+    games4e.Fig52Game
+    games4e.Fig52Game.actions
+    games4e.Fig52Game.result
+    games4e.Fig52Game.terminal_test
+    games4e.Fig52Game.to_move
+    games4e.Fig52Game.utility
+    games4e.Game
+    games4e.Game.__repr__
+    games4e.Game.actions
+    games4e.Game.display
+    games4e.Game.play_game
+    games4e.Game.result
+    games4e.Game.terminal_test
+    games4e.Game.to_move
+    games4e.Game.utility
+    games4e.GameState
+    games4e.GameState.board
+    games4e.GameState.moves
+    games4e.GameState.to_move
+    games4e.GameState.utility
+    games4e.StochasticGame
+    games4e.StochasticGame.chances
+    games4e.StochasticGame.outcome
+    games4e.StochasticGame.play_game
+    games4e.StochasticGame.probability
+    games4e.StochasticGameState
+    games4e.StochasticGameState.board
+    games4e.StochasticGameState.chance
+    games4e.StochasticGameState.moves
+    games4e.StochasticGameState.to_move
+    games4e.StochasticGameState.utility
+    games4e.TicTacToe
+    games4e.TicTacToe.__init__
+    games4e.TicTacToe.actions
+    games4e.TicTacToe.compute_utility
+    games4e.TicTacToe.display
+    games4e.TicTacToe.k_in_row
+    games4e.TicTacToe.result
+    games4e.TicTacToe.terminal_test
+    games4e.TicTacToe.utility
+    games4e.alpha_beta_cutoff_search
+    games4e.alpha_beta_player
+    games4e.alpha_beta_search
+    games4e.expect_min_max_player
+    games4e.expect_minmax
+    games4e.mcts_player
+    games4e.minmax_decision
+    games4e.monte_carlo_tree_search
+    games4e.query_player
+    games4e.random_player
+0 tests in 76 items.
+0 passed and 0 failed.
+Test passed.
+74 items had no tests:
+    games
+    games.Backgammon
+    games.Backgammon.__init__
+    games.Backgammon.actions
+    games.Backgammon.chances
+    games.Backgammon.checkers_at_home
+    games.Backgammon.compute_utility
+    games.Backgammon.display
+    games.Backgammon.get_all_moves
+    games.Backgammon.is_legal_move
+    games.Backgammon.is_point_open
+    games.Backgammon.move_checker
+    games.Backgammon.outcome
+    games.Backgammon.probability
+    games.Backgammon.result
+    games.Backgammon.terminal_test
+    games.Backgammon.utility
+    games.ConnectFour
+    games.ConnectFour.__init__
+    games.ConnectFour.actions
+    games.Fig52Extended
+    games.Fig52Extended.actions
+    games.Fig52Extended.result
+    games.Fig52Extended.terminal_test
+    games.Fig52Extended.to_move
+    games.Fig52Extended.utility
+    games.Fig52Game
+    games.Fig52Game.actions
+    games.Fig52Game.result
+    games.Fig52Game.terminal_test
+    games.Fig52Game.to_move
+    games.Fig52Game.utility
+    games.Game
+    games.Game.__repr__
+    games.Game.actions
+    games.Game.display
+    games.Game.play_game
+    games.Game.result
+    games.Game.terminal_test
+    games.Game.to_move
+    games.Game.utility
+    games.GameState
+    games.GameState.board
+    games.GameState.moves
+    games.GameState.to_move
+    games.GameState.utility
+    games.StochasticGame
+    games.StochasticGame.chances
+    games.StochasticGame.outcome
+    games.StochasticGame.play_game
+    games.StochasticGame.probability
+    games.StochasticGameState
+    games.StochasticGameState.board
+    games.StochasticGameState.chance
+    games.StochasticGameState.moves
+    games.StochasticGameState.to_move
+    games.StochasticGameState.utility
+    games.TicTacToe
+    games.TicTacToe.__init__
+    games.TicTacToe.actions
+    games.TicTacToe.compute_utility
+    games.TicTacToe.display
+    games.TicTacToe.k_in_row
+    games.TicTacToe.result
+    games.TicTacToe.terminal_test
+    games.TicTacToe.utility
+    games.alpha_beta_cutoff_search
+    games.alpha_beta_player
+    games.alpha_beta_search
+    games.expect_minmax
+    games.expect_minmax_player
+    games.minmax_decision
+    games.query_player
+    games.random_player
+0 tests in 74 items.
+0 passed and 0 failed.
+Test passed.
+16 items had no tests:
+    ipyviews
+    ipyviews.ContinuousWorldView
+    ipyviews.ContinuousWorldView.__init__
+    ipyviews.ContinuousWorldView.get_polygon_obstacles_coordinates
+    ipyviews.ContinuousWorldView.handle_add_obstacle
+    ipyviews.ContinuousWorldView.handle_remove_obstacle
+    ipyviews.ContinuousWorldView.object_name
+    ipyviews.ContinuousWorldView.show
+    ipyviews.GridWorldView
+    ipyviews.GridWorldView.__init__
+    ipyviews.GridWorldView.handle_click
+    ipyviews.GridWorldView.map_to_render
+    ipyviews.GridWorldView.object_name
+    ipyviews.GridWorldView.set_label
+    ipyviews.GridWorldView.set_representation
+    ipyviews.GridWorldView.show
+0 tests in 16 items.
+0 passed and 0 failed.
+Test passed.
+30 items had no tests:
+    knowledge
+    knowledge.FOILContainer
+    knowledge.FOILContainer.__init__
+    knowledge.FOILContainer.choose_literal
+    knowledge.FOILContainer.extend_example
+    knowledge.FOILContainer.foil
+    knowledge.FOILContainer.gain
+    knowledge.FOILContainer.new_clause
+    knowledge.FOILContainer.new_literals
+    knowledge.FOILContainer.tell
+    knowledge.FOILContainer.update_examples
+    knowledge.add_or
+    knowledge.all_hypotheses
+    knowledge.build_attr_combinations
+    knowledge.build_h_combinations
+    knowledge.check_all_consistency
+    knowledge.check_negative_consistency
+    knowledge.consistent_det
+    knowledge.current_best_learning
+    knowledge.disjunction_value
+    knowledge.false_negative
+    knowledge.false_positive
+    knowledge.generalizations
+    knowledge.guess_value
+    knowledge.is_consistent
+    knowledge.minimal_consistent_det
+    knowledge.specializations
+    knowledge.values_table
+    knowledge.version_space_learning
+    knowledge.version_space_update
+0 tests in 30 items.
+0 passed and 0 failed.
+Test passed.
+Trying:
+    DataSet(examples='1, 2, 3')
+Expecting:
+    <DataSet(): 1 examples, 3 attributes>
+ok
+Trying:
+    parse_csv('1, 2, 3 \n 0, 2, na')
+Expecting:
+    [[1, 2, 3], [0, 2, 'na']]
+ok
+Trying:
+    weighted_mode('abbaa', [1, 2, 3, 1, 2])
+Expecting:
+    'b'
+ok
+Trying:
+    weighted_replicate('ABC', [1, 2, 1], 4)
+Expecting:
+    ['A', 'B', 'B', 'C']
+ok
+64 items had no tests:
+    learning4e
+    learning4e.BinarySVM
+    learning4e.BinarySVM.QP
+    learning4e.BinarySVM.__init__
+    learning4e.BinarySVM.fit
+    learning4e.BinarySVM.predict
+    learning4e.BinarySVM.predict_score
+    learning4e.ContinuousXor
+    learning4e.DataSet
+    learning4e.DataSet.__repr__
+    learning4e.DataSet.add_example
+    learning4e.DataSet.attr_num
+    learning4e.DataSet.check_example
+    learning4e.DataSet.check_me
+    learning4e.DataSet.classes_to_numbers
+    learning4e.DataSet.find_means_and_deviations
+    learning4e.DataSet.remove_examples
+    learning4e.DataSet.sanitize
+    learning4e.DataSet.set_problem
+    learning4e.DataSet.split_values_by_classes
+    learning4e.DataSet.update_values
+    learning4e.DecisionFork
+    learning4e.DecisionFork.__call__
+    learning4e.DecisionFork.__init__
+    learning4e.DecisionFork.__repr__
+    learning4e.DecisionFork.add
+    learning4e.DecisionFork.display
+    learning4e.DecisionLeaf
+    learning4e.DecisionLeaf.__call__
+    learning4e.DecisionLeaf.__init__
+    learning4e.DecisionLeaf.__repr__
+    learning4e.DecisionLeaf.display
+    learning4e.DecisionListLearner
+    learning4e.DecisionTreeLearner
+    learning4e.EnsembleLearner
+    learning4e.LinearLearner
+    learning4e.LogisticLinearLeaner
+    learning4e.Majority
+    learning4e.MultiSVM
+    learning4e.MultiSVM.__init__
+    learning4e.MultiSVM.fit
+    learning4e.MultiSVM.predict
+    learning4e.NearestNeighborLearner
+    learning4e.Parity
+    learning4e.PluralityLearner
+    learning4e.RandomForest
+    learning4e.RestaurantDataSet
+    learning4e.SyntheticRestaurant
+    learning4e.T
+    learning4e.WeightedLearner
+    learning4e.Xor
+    learning4e.ada_boost
+    learning4e.compare
+    learning4e.cross_validation
+    learning4e.err_ratio
+    learning4e.flatten
+    learning4e.grade_learner
+    learning4e.information_content
+    learning4e.learning_curve
+    learning4e.leave_one_out
+    learning4e.model_selection
+    learning4e.replicated_dataset
+    learning4e.train_test_split
+    learning4e.weighted_majority
+4 items passed all tests:
+   1 tests in learning4e.DataSet.__init__
+   1 tests in learning4e.parse_csv
+   1 tests in learning4e.weighted_mode
+   1 tests in learning4e.weighted_replicate
+4 tests in 68 items.
+4 passed and 0 failed.
+Test passed.
+Trying:
+    DataSet(examples='1, 2, 3')
+Expecting:
+    <DataSet(): 1 examples, 3 attributes>
+ok
+Trying:
+    parse_csv('1, 2, 3 \n 0, 2, na')
+Expecting:
+    [[1, 2, 3], [0, 2, 'na']]
+ok
+Trying:
+    weighted_mode('abbaa', [1, 2, 3, 1, 2])
+Expecting:
+    'b'
+ok
+Trying:
+    weighted_replicate('ABC', [1, 2, 1], 4)
+Expecting:
+    ['A', 'B', 'B', 'C']
+ok
+72 items had no tests:
+    learning
+    learning.BackPropagationLearner
+    learning.BinarySVM
+    learning.BinarySVM.QP
+    learning.BinarySVM.__init__
+    learning.BinarySVM.fit
+    learning.BinarySVM.predict
+    learning.BinarySVM.predict_score
+    learning.ContinuousXor
+    learning.DataSet
+    learning.DataSet.__repr__
+    learning.DataSet.add_example
+    learning.DataSet.attr_num
+    learning.DataSet.check_example
+    learning.DataSet.check_me
+    learning.DataSet.classes_to_numbers
+    learning.DataSet.find_means_and_deviations
+    learning.DataSet.remove_examples
+    learning.DataSet.sanitize
+    learning.DataSet.set_problem
+    learning.DataSet.split_values_by_classes
+    learning.DataSet.update_values
+    learning.DecisionFork
+    learning.DecisionFork.__call__
+    learning.DecisionFork.__init__
+    learning.DecisionFork.__repr__
+    learning.DecisionFork.add
+    learning.DecisionFork.display
+    learning.DecisionLeaf
+    learning.DecisionLeaf.__call__
+    learning.DecisionLeaf.__init__
+    learning.DecisionLeaf.__repr__
+    learning.DecisionLeaf.display
+    learning.DecisionListLearner
+    learning.DecisionTreeLearner
+    learning.EnsembleLearner
+    learning.LinearLearner
+    learning.LogisticLinearLeaner
+    learning.Majority
+    learning.MultiSVM
+    learning.MultiSVM.__init__
+    learning.MultiSVM.fit
+    learning.MultiSVM.predict
+    learning.NNUnit
+    learning.NNUnit.__init__
+    learning.NearestNeighborLearner
+    learning.NeuralNetLearner
+    learning.Parity
+    learning.PerceptronLearner
+    learning.PluralityLearner
+    learning.RandomForest
+    learning.RestaurantDataSet
+    learning.SyntheticRestaurant
+    learning.T
+    learning.WeightedLearner
+    learning.Xor
+    learning.ada_boost
+    learning.compare
+    learning.cross_validation
+    learning.cross_validation_wrapper
+    learning.err_ratio
+    learning.find_max_node
+    learning.flatten
+    learning.grade_learner
+    learning.information_content
+    learning.init_examples
+    learning.learning_curve
+    learning.leave_one_out
+    learning.network
+    learning.replicated_dataset
+    learning.train_test_split
+    learning.weighted_majority
+4 items passed all tests:
+   1 tests in learning.DataSet.__init__
+   1 tests in learning.parse_csv
+   1 tests in learning.weighted_mode
+   1 tests in learning.weighted_replicate
+4 tests in 76 items.
+4 passed and 0 failed.
+Test passed.
+Trying:
+    kb0 = FolKB([expr('Farmer(Mac)'), expr('Rabbit(Pete)'),
+                 expr('(Rabbit(r) & Farmer(f)) ==> Hates(f, r)')])
+Expecting nothing
+ok
+Trying:
+    kb0.tell(expr('Rabbit(Flopsie)'))
+Expecting nothing
+ok
+Trying:
+    kb0.retract(expr('Rabbit(Pete)'))
+Expecting nothing
+ok
+Trying:
+    kb0.ask(expr('Hates(Mac, x)'))[x]
+Expecting:
+    Flopsie
+ok
+Trying:
+    kb0.ask(expr('Wife(Pete, x)'))
+Expecting:
+    False
+ok
+Trying:
+    transition = {'A': {'Left': 'A', 'Right': 'B'}, 'B': {'Left': 'A', 'Right': 'C'}, 'C': {'Left': 'B', 'Right': 'C'}}
+Expecting nothing
+ok
+Trying:
+    SAT_plan('A', transition, 'C', 1) is None
+Expecting:
+    True
+ok
+Trying:
+    WalkSAT([A & ~A], 0.5, 100) is None
+Expecting:
+    True
+ok
+Trying:
+    associate('&', [(A&B),(B|C),(B&C)])
+Expecting:
+    (A & B & (B | C) & B & C)
+ok
+Trying:
+    associate('|', [A|(B|(C|(A&B)))])
+Expecting:
+    (A | B | C | (A & B))
+ok
+Trying:
+    s = {x: y, y: G(z)}
+Expecting nothing
+ok
+Trying:
+    cascade_substitution(s)
+Expecting nothing
+ok
+Trying:
+    s == {x: G(z), y: G(z)}
+Expecting:
+    True
+ok
+Trying:
+    cdcl_satisfiable(A |'<=>'| B) == {A: True, B: True}
+Expecting:
+    True
+ok
+Trying:
+    conjuncts(A & B)
+Expecting:
+    [A, B]
+ok
+Trying:
+    conjuncts(A | B)
+Expecting:
+    [(A | B)]
+ok
+Trying:
+    d(x * x - x, x)
+Expecting:
+    ((2 * x) - 1)
+ok
+Trying:
+    diff(x * x, x)
+Expecting:
+    ((x * 1) + (x * 1))
+ok
+Trying:
+    disjuncts(A | B)
+Expecting:
+    [A, B]
+ok
+Trying:
+    disjuncts(A & B)
+Expecting:
+    [(A & B)]
+ok
+Trying:
+    dissociate('&', [A & B])
+Expecting:
+    [A, B]
+ok
+Trying:
+    distribute_and_over_or((A & B) | C)
+Expecting:
+    ((A | C) & (B | C))
+ok
+Trying:
+    dpll_satisfiable(A |'<=>'| B) == {A: True, B: True}
+Expecting:
+    True
+ok
+Trying:
+    find_pure_symbol([A, B, C], [A|~B,~B|~C,C|A])
+Expecting:
+    (A, True)
+ok
+Trying:
+    find_unit_clause([A|B|C, B|~C, ~A|~B], {A:True})
+Expecting:
+    (B, False)
+ok
+Trying:
+    inspect_literal(P)
+Expecting:
+    (P, True)
+ok
+Trying:
+    inspect_literal(~P)
+Expecting:
+    (P, False)
+ok
+Trying:
+    is_definite_clause(expr('Farmer(Mac)'))
+Expecting:
+    True
+ok
+Trying:
+    is_prop_symbol('exe')
+Expecting:
+    False
+ok
+Trying:
+    is_symbol('R2D2')
+Expecting:
+    True
+ok
+Trying:
+    is_var_symbol('EXE')
+Expecting:
+    False
+ok
+Trying:
+    move_not_inwards(~(A | B))
+Expecting:
+    (~A & ~B)
+ok
+Trying:
+    pl_fc_entails(horn_clauses_KB, expr('Q'))
+Expecting:
+    True
+ok
+Trying:
+    pl_resolution(horn_clauses_KB, A)
+Expecting:
+    True
+ok
+Trying:
+    pl_true(P, {}) is None
+Expecting:
+    True
+ok
+Trying:
+    subst({x: 42, y:0}, F(x) + y)
+Expecting:
+    (F(42) + 0)
+ok
+Trying:
+    to_cnf('~(B | C)')
+Expecting:
+    (~B & ~C)
+ok
+Trying:
+    tt_entails(expr('P & Q'), expr('Q'))
+Expecting:
+    True
+ok
+Trying:
+    tt_true('P | ~P')
+Expecting:
+    True
+ok
+Trying:
+    unify(x, 3, {})
+Expecting:
+    {x: 3}
+ok
+Trying:
+    unify_mm(x, 3, {})
+Expecting:
+    {x: 3}
+ok
+Trying:
+    unit_clause_assign(A|B|C, {A:True})
+Expecting:
+    (None, None)
+ok
+Trying:
+    unit_clause_assign(B|~C, {A:True})
+Expecting:
+    (None, None)
+ok
+Trying:
+    unit_clause_assign(~A|~B, {A:True})
+Expecting:
+    (B, False)
+ok
+Trying:
+    variables(expr('F(x, x) & G(x, y) & H(y, z) & R(A, z, 2)')) == {x, y, z}
+Expecting:
+    True
+ok
+120 items had no tests:
+    logic
+    logic.FolKB.__init__
+    logic.FolKB.ask_generator
+    logic.FolKB.fetch_rules_for_goal
+    logic.FolKB.retract
+    logic.FolKB.tell
+    logic.HybridWumpusAgent
+    logic.HybridWumpusAgent.__init__
+    logic.HybridWumpusAgent.execute
+    logic.HybridWumpusAgent.plan_route
+    logic.HybridWumpusAgent.plan_shot
+    logic.KB
+    logic.KB.__init__
+    logic.KB.ask
+    logic.KB.ask_generator
+    logic.KB.retract
+    logic.KB.tell
+    logic.KBAgentProgram
+    logic.MapColoringSAT
+    logic.PropDefiniteKB
+    logic.PropDefiniteKB.ask_generator
+    logic.PropDefiniteKB.clauses_with_premise
+    logic.PropDefiniteKB.retract
+    logic.PropDefiniteKB.tell
+    logic.PropKB
+    logic.PropKB.__init__
+    logic.PropKB.ask_generator
+    logic.PropKB.ask_if_true
+    logic.PropKB.retract
+    logic.PropKB.tell
+    logic.TwoWLClauseDatabase
+    logic.TwoWLClauseDatabase._TwoWLClauseDatabase__assign_watching_literals
+    logic.TwoWLClauseDatabase._TwoWLClauseDatabase__find_new_watching_literal
+    logic.TwoWLClauseDatabase.__init__
+    logic.TwoWLClauseDatabase.add
+    logic.TwoWLClauseDatabase.get_clauses
+    logic.TwoWLClauseDatabase.get_first_watched
+    logic.TwoWLClauseDatabase.get_neg_watched
+    logic.TwoWLClauseDatabase.get_pos_watched
+    logic.TwoWLClauseDatabase.get_second_watched
+    logic.TwoWLClauseDatabase.remove
+    logic.TwoWLClauseDatabase.set_first_watched
+    logic.TwoWLClauseDatabase.set_second_watched
+    logic.TwoWLClauseDatabase.update_first_watched
+    logic.TwoWLClauseDatabase.update_second_watched
+    logic.WumpusKB
+    logic.WumpusKB.__init__
+    logic.WumpusKB.add_temporal_sentences
+    logic.WumpusKB.ask_if_true
+    logic.WumpusKB.make_action_sentence
+    logic.WumpusKB.make_percept_sentence
+    logic.WumpusPosition
+    logic.WumpusPosition.__eq__
+    logic.WumpusPosition.__init__
+    logic.WumpusPosition.get_location
+    logic.WumpusPosition.get_orientation
+    logic.WumpusPosition.set_location
+    logic.WumpusPosition.set_orientation
+    logic.assign_decision_literal
+    logic.backjump
+    logic.breeze
+    logic.conflict_analysis
+    logic.constant_symbols
+    logic.dlcs
+    logic.dlis
+    logic.dpll
+    logic.eliminate_implications
+    logic.equiv
+    logic.facing_east
+    logic.facing_north
+    logic.facing_south
+    logic.facing_west
+    logic.fol_bc_and
+    logic.fol_bc_ask
+    logic.fol_bc_or
+    logic.fol_fc_ask
+    logic.glucose
+    logic.have_arrow
+    logic.implies
+    logic.is_variable
+    logic.jw
+    logic.jw2
+    logic.location
+    logic.luby
+    logic.min_clauses
+    logic.moms
+    logic.momsf
+    logic.move_forward
+    logic.new_disjunction
+    logic.no_branching_heuristic
+    logic.no_restart
+    logic.occur_check
+    logic.ok_to_move
+    logic.parse_clauses_from_dimacs
+    logic.parse_definite_clause
+    logic.percept_breeze
+    logic.percept_bump
+    logic.percept_glitter
+    logic.percept_scream
+    logic.percept_stench
+    logic.pit
+    logic.pl_binary_resolution
+    logic.pl_resolve
+    logic.posit
+    logic.predicate_symbols
+    logic.prop_symbols
+    logic.shoot
+    logic.simp
+    logic.standardize_variables
+    logic.stench
+    logic.term_reduction
+    logic.tt_check_all
+    logic.turn_left
+    logic.turn_right
+    logic.unify_var
+    logic.unit_propagation
+    logic.vars_elimination
+    logic.wumpus
+    logic.wumpus_alive
+    logic.zm
+32 items passed all tests:
+   5 tests in logic.FolKB
+   2 tests in logic.SAT_plan
+   1 tests in logic.WalkSAT
+   2 tests in logic.associate
+   3 tests in logic.cascade_substitution
+   1 tests in logic.cdcl_satisfiable
+   2 tests in logic.conjuncts
+   1 tests in logic.d
+   1 tests in logic.diff
+   2 tests in logic.disjuncts
+   1 tests in logic.dissociate
+   1 tests in logic.distribute_and_over_or
+   1 tests in logic.dpll_satisfiable
+   1 tests in logic.find_pure_symbol
+   1 tests in logic.find_unit_clause
+   2 tests in logic.inspect_literal
+   1 tests in logic.is_definite_clause
+   1 tests in logic.is_prop_symbol
+   1 tests in logic.is_symbol
+   1 tests in logic.is_var_symbol
+   1 tests in logic.move_not_inwards
+   1 tests in logic.pl_fc_entails
+   1 tests in logic.pl_resolution
+   1 tests in logic.pl_true
+   1 tests in logic.subst
+   1 tests in logic.to_cnf
+   1 tests in logic.tt_entails
+   1 tests in logic.tt_true
+   1 tests in logic.unify
+   1 tests in logic.unify_mm
+   3 tests in logic.unit_clause_assign
+   1 tests in logic.variables
+45 tests in 152 items.
+45 passed and 0 failed.
+Test passed.
+19 items had no tests:
+    making_simple_decision4e
+    making_simple_decision4e.DecisionNetwork
+    making_simple_decision4e.DecisionNetwork.__init__
+    making_simple_decision4e.DecisionNetwork.best_action
+    making_simple_decision4e.DecisionNetwork.get_expected_utility
+    making_simple_decision4e.DecisionNetwork.get_utility
+    making_simple_decision4e.InformationGatheringAgent
+    making_simple_decision4e.InformationGatheringAgent.__init__
+    making_simple_decision4e.InformationGatheringAgent.cost
+    making_simple_decision4e.InformationGatheringAgent.execute
+    making_simple_decision4e.InformationGatheringAgent.integrate_percept
+    making_simple_decision4e.InformationGatheringAgent.request
+    making_simple_decision4e.InformationGatheringAgent.vpi
+    making_simple_decision4e.InformationGatheringAgent.vpi_cost_ratio
+    making_simple_decision4e.MCLmap
+    making_simple_decision4e.MCLmap.__init__
+    making_simple_decision4e.MCLmap.ray_cast
+    making_simple_decision4e.MCLmap.sample
+    making_simple_decision4e.monte_carlo_localization
+0 tests in 19 items.
+0 passed and 0 failed.
+Test passed.
+Trying:
+    pi = best_policy(sequential_decision_environment, value_iteration(sequential_decision_environment, .01))
+Expecting nothing
+ok
+Trying:
+    sequential_decision_environment.to_arrows(pi)
+Expecting:
+    [['>', '>', '>', '.'], ['^', None, '^', '.'], ['^', '>', '^', '<']]
+ok
+Trying:
+    from utils import print_table
+Expecting nothing
+ok
+Trying:
+    print_table(sequential_decision_environment.to_arrows(pi))
+Expecting:
+    >   >      >   .
+    ^   None   ^   .
+    ^   >      ^   <
+ok
+Trying:
+    print_table(sequential_decision_environment.to_arrows(policy_iteration(sequential_decision_environment)))
+Expecting:
+    >   >      >   .
+    ^   None   ^   .
+    ^   >      ^   <
+ok
+36 items had no tests:
+    mdp4e.GridMDP
+    mdp4e.GridMDP.T
+    mdp4e.GridMDP.__init__
+    mdp4e.GridMDP.calculate_T
+    mdp4e.GridMDP.go
+    mdp4e.GridMDP.to_arrows
+    mdp4e.GridMDP.to_grid
+    mdp4e.MDP
+    mdp4e.MDP.R
+    mdp4e.MDP.T
+    mdp4e.MDP.__init__
+    mdp4e.MDP.actions
+    mdp4e.MDP.check_consistency
+    mdp4e.MDP.get_states_from_transitions
+    mdp4e.MDP2
+    mdp4e.MDP2.T
+    mdp4e.MDP2.__init__
+    mdp4e.Matrix
+    mdp4e.Matrix.add
+    mdp4e.Matrix.matmul
+    mdp4e.Matrix.multiply
+    mdp4e.Matrix.scalar_multiply
+    mdp4e.Matrix.transpose
+    mdp4e.POMDP
+    mdp4e.POMDP.__init__
+    mdp4e.POMDP.generate_mapping
+    mdp4e.POMDP.max_difference
+    mdp4e.POMDP.remove_dominated_plans
+    mdp4e.POMDP.remove_dominated_plans_fast
+    mdp4e.best_policy
+    mdp4e.expected_utility
+    mdp4e.policy_evaluation
+    mdp4e.policy_iteration
+    mdp4e.pomdp_value_iteration
+    mdp4e.q_value
+    mdp4e.value_iteration
+1 items passed all tests:
+   5 tests in mdp4e
+5 tests in 37 items.
+5 passed and 0 failed.
+Test passed.
+Trying:
+    pi = best_policy(sequential_decision_environment, value_iteration(sequential_decision_environment, .01))
+Expecting nothing
+ok
+Trying:
+    sequential_decision_environment.to_arrows(pi)
+Expecting:
+    [['>', '>', '>', '.'], ['^', None, '^', '.'], ['^', '>', '^', '<']]
+ok
+Trying:
+    from utils import print_table
+Expecting nothing
+ok
+Trying:
+    print_table(sequential_decision_environment.to_arrows(pi))
+Expecting:
+    >   >      >   .
+    ^   None   ^   .
+    ^   >      ^   <
+ok
+Trying:
+    print_table(sequential_decision_environment.to_arrows(policy_iteration(sequential_decision_environment)))
+Expecting:
+    >   >      >   .
+    ^   None   ^   .
+    ^   >      ^   <
+ok
+35 items had no tests:
+    mdp.GridMDP
+    mdp.GridMDP.T
+    mdp.GridMDP.__init__
+    mdp.GridMDP.calculate_T
+    mdp.GridMDP.go
+    mdp.GridMDP.to_arrows
+    mdp.GridMDP.to_grid
+    mdp.MDP
+    mdp.MDP.R
+    mdp.MDP.T
+    mdp.MDP.__init__
+    mdp.MDP.actions
+    mdp.MDP.check_consistency
+    mdp.MDP.get_states_from_transitions
+    mdp.MDP2
+    mdp.MDP2.T
+    mdp.MDP2.__init__
+    mdp.Matrix
+    mdp.Matrix.add
+    mdp.Matrix.matmul
+    mdp.Matrix.multiply
+    mdp.Matrix.scalar_multiply
+    mdp.Matrix.transpose
+    mdp.POMDP
+    mdp.POMDP.__init__
+    mdp.POMDP.generate_mapping
+    mdp.POMDP.max_difference
+    mdp.POMDP.remove_dominated_plans
+    mdp.POMDP.remove_dominated_plans_fast
+    mdp.best_policy
+    mdp.expected_utility
+    mdp.policy_evaluation
+    mdp.policy_iteration
+    mdp.pomdp_value_iteration
+    mdp.value_iteration
+1 items passed all tests:
+   5 tests in mdp
+5 tests in 36 items.
+5 passed and 0 failed.
+Test passed.
+Trying:
+    chart = Chart(E0)
+Expecting nothing
+ok
+Trying:
+    len(chart.parses('the stench is in 2 2'))
+Expecting:
+    1
+ok
+Trying:
+    Lexicon(Article = "the | a | an")
+Expecting:
+    {'Article': ['the', 'a', 'an']}
+ok
+Trying:
+    ProbLexicon(Article = "the [0.5] | a [0.25] | an [0.25]")
+Expecting:
+    {'Article': [('the', 0.5), ('a', 0.25), ('an', 0.25)]}
+ok
+Trying:
+    ProbRules(A = "B C [0.3] | D E [0.7]")
+Expecting:
+    {'A': [(['B', 'C'], 0.3), (['D', 'E'], 0.7)]}
+ok
+Trying:
+    Rules(A = "B C | D E")
+Expecting:
+    {'A': [['B', 'C'], ['D', 'E']]}
+ok
+33 items had no tests:
+    nlp4e
+    nlp4e.CYK_parse
+    nlp4e.Chart.__init__
+    nlp4e.Chart.add_edge
+    nlp4e.Chart.extender
+    nlp4e.Chart.parse
+    nlp4e.Chart.parses
+    nlp4e.Chart.predictor
+    nlp4e.Chart.scanner
+    nlp4e.Grammar
+    nlp4e.Grammar.__init__
+    nlp4e.Grammar.__repr__
+    nlp4e.Grammar.cnf_rules
+    nlp4e.Grammar.generate_random
+    nlp4e.Grammar.isa
+    nlp4e.Grammar.rewrites_for
+    nlp4e.ProbGrammar
+    nlp4e.ProbGrammar.__init__
+    nlp4e.ProbGrammar.__repr__
+    nlp4e.ProbGrammar.cnf_rules
+    nlp4e.ProbGrammar.generate_random
+    nlp4e.ProbGrammar.isa
+    nlp4e.ProbGrammar.rewrites_for
+    nlp4e.TextParsingProblem
+    nlp4e.TextParsingProblem.__init__
+    nlp4e.TextParsingProblem.actions
+    nlp4e.TextParsingProblem.h
+    nlp4e.TextParsingProblem.result
+    nlp4e.Tree
+    nlp4e.Tree.__init__
+    nlp4e.astar_search_parsing
+    nlp4e.beam_search_parsing
+    nlp4e.subspan
+5 items passed all tests:
+   2 tests in nlp4e.Chart
+   1 tests in nlp4e.Lexicon
+   1 tests in nlp4e.ProbLexicon
+   1 tests in nlp4e.ProbRules
+   1 tests in nlp4e.Rules
+6 tests in 38 items.
+6 passed and 0 failed.
+Test passed.
+Trying:
+    chart = Chart(E0)
+Expecting nothing
+ok
+Trying:
+    len(chart.parses('the stench is in 2 2'))
+Expecting:
+    1
+ok
+Trying:
+    Lexicon(Article = "the | a | an")
+Expecting:
+    {'Article': ['the', 'a', 'an']}
+ok
+Trying:
+    ProbLexicon(Article = "the [0.5] | a [0.25] | an [0.25]")
+Expecting:
+    {'Article': [('the', 0.5), ('a', 0.25), ('an', 0.25)]}
+ok
+Trying:
+    ProbRules(A = "B C [0.3] | D E [0.7]")
+Expecting:
+    {'A': [(['B', 'C'], 0.3), (['D', 'E'], 0.7)]}
+ok
+Trying:
+    Rules(A = "B C | D E")
+Expecting:
+    {'A': [['B', 'C'], ['D', 'E']]}
+ok
+41 items had no tests:
+    nlp
+    nlp.CYK_parse
+    nlp.Chart.__init__
+    nlp.Chart.add_edge
+    nlp.Chart.extender
+    nlp.Chart.parse
+    nlp.Chart.parses
+    nlp.Chart.predictor
+    nlp.Chart.scanner
+    nlp.ConvergenceDetector
+    nlp.ConvergenceDetector.__call__
+    nlp.ConvergenceDetector.__init__
+    nlp.ConvergenceDetector.detect
+    nlp.Grammar
+    nlp.Grammar.__init__
+    nlp.Grammar.__repr__
+    nlp.Grammar.cnf_rules
+    nlp.Grammar.generate_random
+    nlp.Grammar.isa
+    nlp.Grammar.rewrites_for
+    nlp.HITS
+    nlp.Page
+    nlp.Page.__init__
+    nlp.ProbGrammar
+    nlp.ProbGrammar.__init__
+    nlp.ProbGrammar.__repr__
+    nlp.ProbGrammar.cnf_rules
+    nlp.ProbGrammar.generate_random
+    nlp.ProbGrammar.isa
+    nlp.ProbGrammar.rewrites_for
+    nlp.determineInlinks
+    nlp.expand_pages
+    nlp.findOutlinks
+    nlp.getInLinks
+    nlp.getOutLinks
+    nlp.initPages
+    nlp.loadPageHTML
+    nlp.normalize
+    nlp.onlyWikipediaURLS
+    nlp.relevant_pages
+    nlp.stripRawHTML
+5 items passed all tests:
+   2 tests in nlp.Chart
+   1 tests in nlp.Lexicon
+   1 tests in nlp.ProbLexicon
+   1 tests in nlp.ProbRules
+   1 tests in nlp.Rules
+6 tests in 46 items.
+6 passed and 0 failed.
+Test passed.
+62 items had no tests:
+    notebook4e
+    notebook4e.Canvas
+    notebook4e.Canvas.__init__
+    notebook4e.Canvas.alert
+    notebook4e.Canvas.arc
+    notebook4e.Canvas.arc_n
+    notebook4e.Canvas.clear
+    notebook4e.Canvas.execute
+    notebook4e.Canvas.fill
+    notebook4e.Canvas.font
+    notebook4e.Canvas.line
+    notebook4e.Canvas.line_n
+    notebook4e.Canvas.mouse_click
+    notebook4e.Canvas.mouse_move
+    notebook4e.Canvas.rect
+    notebook4e.Canvas.rect_n
+    notebook4e.Canvas.stroke
+    notebook4e.Canvas.strokeWidth
+    notebook4e.Canvas.text
+    notebook4e.Canvas.text_n
+    notebook4e.Canvas.update
+    notebook4e.Canvas_TicTacToe
+    notebook4e.Canvas_TicTacToe.__init__
+    notebook4e.Canvas_TicTacToe.draw_board
+    notebook4e.Canvas_TicTacToe.draw_o
+    notebook4e.Canvas_TicTacToe.draw_x
+    notebook4e.Canvas_TicTacToe.mouse_click
+    notebook4e.Canvas_alpha_beta
+    notebook4e.Canvas_alpha_beta.__init__
+    notebook4e.Canvas_alpha_beta.alpha_beta_search
+    notebook4e.Canvas_alpha_beta.draw_graph
+    notebook4e.Canvas_alpha_beta.mouse_click
+    notebook4e.Canvas_alpha_beta.stack_manager_gen
+    notebook4e.Canvas_fol_bc_ask
+    notebook4e.Canvas_fol_bc_ask.__init__
+    notebook4e.Canvas_fol_bc_ask.draw_table
+    notebook4e.Canvas_fol_bc_ask.fol_bc_ask
+    notebook4e.Canvas_fol_bc_ask.make_table
+    notebook4e.Canvas_fol_bc_ask.mouse_click
+    notebook4e.Canvas_min_max
+    notebook4e.Canvas_min_max.__init__
+    notebook4e.Canvas_min_max.draw_graph
+    notebook4e.Canvas_min_max.min_max
+    notebook4e.Canvas_min_max.mouse_click
+    notebook4e.Canvas_min_max.stack_manager_gen
+    notebook4e.display_html
+    notebook4e.display_visual
+    notebook4e.final_path_colors
+    notebook4e.gaussian_kernel
+    notebook4e.heatmap
+    notebook4e.load_MNIST
+    notebook4e.make_plot_grid_step_function
+    notebook4e.make_visualize
+    notebook4e.plot_NQueens
+    notebook4e.plot_model_boundary
+    notebook4e.plot_pomdp_utility
+    notebook4e.pseudocode
+    notebook4e.psource
+    notebook4e.show_MNIST
+    notebook4e.show_ave_MNIST
+    notebook4e.show_iris
+    notebook4e.show_map
+0 tests in 62 items.
+0 passed and 0 failed.
+Test passed.
+61 items had no tests:
+    notebook
+    notebook.Canvas
+    notebook.Canvas.__init__
+    notebook.Canvas.alert
+    notebook.Canvas.arc
+    notebook.Canvas.arc_n
+    notebook.Canvas.clear
+    notebook.Canvas.execute
+    notebook.Canvas.fill
+    notebook.Canvas.font
+    notebook.Canvas.line
+    notebook.Canvas.line_n
+    notebook.Canvas.mouse_click
+    notebook.Canvas.mouse_move
+    notebook.Canvas.rect
+    notebook.Canvas.rect_n
+    notebook.Canvas.stroke
+    notebook.Canvas.strokeWidth
+    notebook.Canvas.text
+    notebook.Canvas.text_n
+    notebook.Canvas.update
+    notebook.Canvas_TicTacToe
+    notebook.Canvas_TicTacToe.__init__
+    notebook.Canvas_TicTacToe.draw_board
+    notebook.Canvas_TicTacToe.draw_o
+    notebook.Canvas_TicTacToe.draw_x
+    notebook.Canvas_TicTacToe.mouse_click
+    notebook.Canvas_alpha_beta
+    notebook.Canvas_alpha_beta.__init__
+    notebook.Canvas_alpha_beta.alpha_beta_search
+    notebook.Canvas_alpha_beta.draw_graph
+    notebook.Canvas_alpha_beta.mouse_click
+    notebook.Canvas_alpha_beta.stack_manager_gen
+    notebook.Canvas_fol_bc_ask
+    notebook.Canvas_fol_bc_ask.__init__
+    notebook.Canvas_fol_bc_ask.draw_table
+    notebook.Canvas_fol_bc_ask.fol_bc_ask
+    notebook.Canvas_fol_bc_ask.make_table
+    notebook.Canvas_fol_bc_ask.mouse_click
+    notebook.Canvas_min_max
+    notebook.Canvas_min_max.__init__
+    notebook.Canvas_min_max.draw_graph
+    notebook.Canvas_min_max.min_max
+    notebook.Canvas_min_max.mouse_click
+    notebook.Canvas_min_max.stack_manager_gen
+    notebook.display_html
+    notebook.display_visual
+    notebook.final_path_colors
+    notebook.gaussian_kernel
+    notebook.heatmap
+    notebook.load_MNIST
+    notebook.make_plot_grid_step_function
+    notebook.make_visualize
+    notebook.plot_NQueens
+    notebook.plot_pomdp_utility
+    notebook.pseudocode
+    notebook.psource
+    notebook.show_MNIST
+    notebook.show_ave_MNIST
+    notebook.show_iris
+    notebook.show_map
+0 tests in 61 items.
+0 passed and 0 failed.
+Test passed.
+23 items had no tests:
+    perception4e
+    perception4e.Graph
+    perception4e.Graph.__init__
+    perception4e.Graph.bfs
+    perception4e.Graph.min_cut
+    perception4e.array_normalization
+    perception4e.gaussian_derivative_edge_detector
+    perception4e.gen_discs
+    perception4e.gen_gray_scale_picture
+    perception4e.generate_edge_weight
+    perception4e.gradient_edge_detector
+    perception4e.group_contour_detection
+    perception4e.image_to_graph
+    perception4e.laplacian_edge_detector
+    perception4e.load_MINST
+    perception4e.pool_roi
+    perception4e.pool_rois
+    perception4e.probability_contour_detection
+    perception4e.selective_search
+    perception4e.show_edges
+    perception4e.simple_convnet
+    perception4e.sum_squared_difference
+    perception4e.train_model
+0 tests in 23 items.
+0 passed and 0 failed.
+Test passed.
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    ac = air_cargo()
+Expecting nothing
+ok
+Trying:
+    ac.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    ac.act(expr('Load(C2, P2, JFK)'))
+Expecting nothing
+ok
+Trying:
+    ac.act(expr('Load(C1, P1, SFO)'))
+Expecting nothing
+ok
+Trying:
+    ac.act(expr('Fly(P1, SFO, JFK)'))
+Expecting nothing
+ok
+Trying:
+    ac.act(expr('Fly(P2, JFK, SFO)'))
+Expecting nothing
+ok
+Trying:
+    ac.act(expr('Unload(C2, P2, SFO)'))
+Expecting nothing
+ok
+Trying:
+    ac.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    ac.act(expr('Unload(C1, P1, JFK)'))
+Expecting nothing
+ok
+Trying:
+    ac.goal_test()
+Expecting:
+    True
+ok
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    dtp = double_tennis_problem()
+Expecting nothing
+ok
+Trying:
+    goal_test(dtp.goals, dtp.initial)
+Expecting:
+    False
+ok
+Trying:
+    dtp.act(expr('Go(A, RightBaseLine, LeftBaseLine)'))
+Expecting nothing
+ok
+Trying:
+    dtp.act(expr('Hit(A, Ball, RightBaseLine)'))
+Expecting nothing
+ok
+Trying:
+    goal_test(dtp.goals, dtp.initial)
+Expecting:
+    False
+ok
+Trying:
+    dtp.act(expr('Go(A, LeftNet, RightBaseLine)'))
+Expecting nothing
+ok
+Trying:
+    goal_test(dtp.goals, dtp.initial)
+Expecting:
+    True
+ok
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    cp = have_cake_and_eat_cake_too()
+Expecting nothing
+ok
+Trying:
+    cp.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    cp.act(expr('Eat(Cake)'))
+Expecting nothing
+ok
+Trying:
+    cp.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    cp.act(expr('Bake(Cake)'))
+Expecting nothing
+ok
+Trying:
+    cp.goal_test()
+Expecting:
+    True
+ok
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    p = job_shop_problem()
+Expecting nothing
+ok
+Trying:
+    p.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    p.act(p.jobs[1][0])
+Expecting nothing
+ok
+Trying:
+    p.act(p.jobs[1][1])
+Expecting nothing
+ok
+Trying:
+    p.act(p.jobs[1][2])
+Expecting nothing
+ok
+Trying:
+    p.act(p.jobs[0][0])
+Expecting nothing
+ok
+Trying:
+    p.act(p.jobs[0][1])
+Expecting nothing
+ok
+Trying:
+    p.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    p.act(p.jobs[0][2])
+Expecting nothing
+ok
+Trying:
+    p.goal_test()
+Expecting:
+    True
+ok
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    sp = shopping_problem()
+Expecting nothing
+ok
+Trying:
+    sp.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    sp.act(expr('Go(Home, HW)'))
+Expecting nothing
+ok
+Trying:
+    sp.act(expr('Buy(Drill, HW)'))
+Expecting nothing
+ok
+Trying:
+    sp.act(expr('Go(HW, SM)'))
+Expecting nothing
+ok
+Trying:
+    sp.act(expr('Buy(Banana, SM)'))
+Expecting nothing
+ok
+Trying:
+    sp.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    sp.act(expr('Buy(Milk, SM)'))
+Expecting nothing
+ok
+Trying:
+    sp.goal_test()
+Expecting:
+    True
+ok
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    sbw = simple_blocks_world()
+Expecting nothing
+ok
+Trying:
+    sbw.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    sbw.act(expr('ToTable(A, B)'))
+Expecting nothing
+ok
+Trying:
+    sbw.act(expr('FromTable(B, A)'))
+Expecting nothing
+ok
+Trying:
+    sbw.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    sbw.act(expr('FromTable(C, B)'))
+Expecting nothing
+ok
+Trying:
+    sbw.goal_test()
+Expecting:
+    True
+ok
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    ss = socks_and_shoes()
+Expecting nothing
+ok
+Trying:
+    ss.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    ss.act(expr('RightSock'))
+Expecting nothing
+ok
+Trying:
+    ss.act(expr('RightShoe'))
+Expecting nothing
+ok
+Trying:
+    ss.act(expr('LeftSock'))
+Expecting nothing
+ok
+Trying:
+    ss.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    ss.act(expr('LeftShoe'))
+Expecting nothing
+ok
+Trying:
+    ss.goal_test()
+Expecting:
+    True
+ok
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    st = spare_tire()
+Expecting nothing
+ok
+Trying:
+    st.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    st.act(expr('Remove(Spare, Trunk)'))
+Expecting nothing
+ok
+Trying:
+    st.act(expr('Remove(Flat, Axle)'))
+Expecting nothing
+ok
+Trying:
+    st.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    st.act(expr('PutOn(Spare, Axle)'))
+Expecting nothing
+ok
+Trying:
+    st.goal_test()
+Expecting:
+    True
+ok
+Trying:
+    from planning import *
+Expecting nothing
+ok
+Trying:
+    tbt = three_block_tower()
+Expecting nothing
+ok
+Trying:
+    tbt.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    tbt.act(expr('MoveToTable(C, A)'))
+Expecting nothing
+ok
+Trying:
+    tbt.act(expr('Move(B, Table, C)'))
+Expecting nothing
+ok
+Trying:
+    tbt.goal_test()
+Expecting:
+    False
+ok
+Trying:
+    tbt.act(expr('Move(A, Table, B)'))
+Expecting nothing
+ok
+Trying:
+    tbt.goal_test()
+Expecting:
+    True
+ok
+108 items had no tests:
+    planning
+    planning.Action
+    planning.Action.__call__
+    planning.Action.__init__
+    planning.Action.__repr__
+    planning.Action.act
+    planning.Action.check_precond
+    planning.Action.convert
+    planning.Action.relaxed
+    planning.Action.substitute
+    planning.AngelicHLA
+    planning.AngelicHLA.__init__
+    planning.AngelicHLA.angelic_action
+    planning.AngelicHLA.compute_parameters
+    planning.AngelicHLA.convert
+    planning.AngelicNode
+    planning.AngelicNode.__init__
+    planning.BackwardPlan
+    planning.BackwardPlan.__init__
+    planning.BackwardPlan.actions
+    planning.BackwardPlan.goal_test
+    planning.BackwardPlan.h
+    planning.BackwardPlan.result
+    planning.CSPlan
+    planning.ForwardPlan
+    planning.ForwardPlan.__init__
+    planning.ForwardPlan.actions
+    planning.ForwardPlan.goal_test
+    planning.ForwardPlan.h
+    planning.ForwardPlan.result
+    planning.Graph
+    planning.Graph.__call__
+    planning.Graph.__init__
+    planning.Graph.expand_graph
+    planning.Graph.non_mutex_goals
+    planning.GraphPlan
+    planning.GraphPlan.__init__
+    planning.GraphPlan.check_leveloff
+    planning.GraphPlan.execute
+    planning.GraphPlan.extract_solution
+    planning.GraphPlan.goal_test
+    planning.HLA
+    planning.HLA.__init__
+    planning.HLA.do_action
+    planning.HLA.has_consumable_resource
+    planning.HLA.has_usable_resource
+    planning.HLA.inorder
+    planning.Level
+    planning.Level.__call__
+    planning.Level.__init__
+    planning.Level.build
+    planning.Level.find_mutex
+    planning.Level.perform_actions
+    planning.Level.separate
+    planning.Linearize
+    planning.Linearize.__init__
+    planning.Linearize.execute
+    planning.Linearize.filter
+    planning.Linearize.orderlevel
+    planning.PartialOrderPlanner
+    planning.PartialOrderPlanner.__init__
+    planning.PartialOrderPlanner.add_const
+    planning.PartialOrderPlanner.convert
+    planning.PartialOrderPlanner.cyclic
+    planning.PartialOrderPlanner.display_plan
+    planning.PartialOrderPlanner.execute
+    planning.PartialOrderPlanner.find_action_for_precondition
+    planning.PartialOrderPlanner.find_open_precondition
+    planning.PartialOrderPlanner.generate_action_object
+    planning.PartialOrderPlanner.generate_expr
+    planning.PartialOrderPlanner.is_a_threat
+    planning.PartialOrderPlanner.protect
+    planning.PartialOrderPlanner.toposort
+    planning.PlanningProblem
+    planning.PlanningProblem.__init__
+    planning.PlanningProblem.act
+    planning.PlanningProblem.convert
+    planning.PlanningProblem.expand_actions
+    planning.PlanningProblem.expand_fluents
+    planning.PlanningProblem.goal_test
+    planning.PlanningProblem.is_strips
+    planning.RealWorldPlanningProblem
+    planning.RealWorldPlanningProblem.__init__
+    planning.RealWorldPlanningProblem.act
+    planning.RealWorldPlanningProblem.angelic_search
+    planning.RealWorldPlanningProblem.decompose
+    planning.RealWorldPlanningProblem.find_hla
+    planning.RealWorldPlanningProblem.find_previous_state
+    planning.RealWorldPlanningProblem.find_reachable_set
+    planning.RealWorldPlanningProblem.hierarchical_search
+    planning.RealWorldPlanningProblem.intersects_goal
+    planning.RealWorldPlanningProblem.is_primitive
+    planning.RealWorldPlanningProblem.making_progress
+    planning.RealWorldPlanningProblem.reach_opt
+    planning.RealWorldPlanningProblem.reach_pes
+    planning.RealWorldPlanningProblem.refinements
+    planning.RealWorldPlanningProblem.result
+    planning.SATPlan
+    planning.air_cargo_graphPlan
+    planning.go_to_sfo
+    planning.goal_test
+    planning.have_cake_and_eat_cake_too_graphPlan
+    planning.linearize
+    planning.shopping_graphPlan
+    planning.simple_blocks_world_graphPlan
+    planning.socks_and_shoes_graphPlan
+    planning.spare_tire_graphPlan
+    planning.three_block_tower_graphPlan
+9 items passed all tests:
+  11 tests in planning.air_cargo
+   8 tests in planning.double_tennis_problem
+   7 tests in planning.have_cake_and_eat_cake_too
+  11 tests in planning.job_shop_problem
+  10 tests in planning.shopping_problem
+   8 tests in planning.simple_blocks_world
+   9 tests in planning.socks_and_shoes
+   8 tests in planning.spare_tire
+   8 tests in planning.three_block_tower
+80 tests in 117 items.
+80 passed and 0 failed.
+Test passed.
+12 items had no tests:
+    probabilistic_learning
+    probabilistic_learning.CountingProbDist
+    probabilistic_learning.CountingProbDist.__getitem__
+    probabilistic_learning.CountingProbDist.__init__
+    probabilistic_learning.CountingProbDist.add
+    probabilistic_learning.CountingProbDist.sample
+    probabilistic_learning.CountingProbDist.smooth_for
+    probabilistic_learning.CountingProbDist.top
+    probabilistic_learning.NaiveBayesContinuous
+    probabilistic_learning.NaiveBayesDiscrete
+    probabilistic_learning.NaiveBayesLearner
+    probabilistic_learning.NaiveBayesSimple
+0 tests in 12 items.
+0 passed and 0 failed.
+Test passed.
+Trying:
+    burglary.variable_node('Burglary').variable
+Expecting:
+    'Burglary'
+ok
+Trying:
+    X = BayesNode('X', '', 0.2)
+Expecting nothing
+ok
+Trying:
+    Y = BayesNode('Y', 'P', {T: 0.2, F: 0.7})
+Expecting nothing
+ok
+Trying:
+    Z = BayesNode('Z', 'P Q',
+       {(T, T): 0.2, (T, F): 0.3, (F, T): 0.5, (F, F): 0.7})
+Expecting nothing
+ok
+Trying:
+    bn = BayesNode('X', 'Burglary', {T: 0.2, F: 0.625})
+Expecting nothing
+ok
+Trying:
+    bn.p(False, {'Burglary': False, 'Earthquake': True})
+Expecting:
+    0.375
+ok
+Trying:
+    P = JointProbDist(['X', 'Y']); P[1, 1] = 0.25
+Expecting nothing
+ok
+Trying:
+    P[1, 1]
+Expecting:
+    0.25
+ok
+Trying:
+    P[dict(X=0, Y=1)] = 0.5
+Expecting nothing
+ok
+Trying:
+    P[dict(X=0, Y=1)]
+Expecting:
+    0.5
+ok
+Trying:
+    P = ProbDist('Flip'); P['H'], P['T'] = 0.25, 0.75; P['H']
+Expecting:
+    0.25
+ok
+Trying:
+    P = ProbDist('X', {'lo': 125, 'med': 375, 'hi': 500})
+Expecting nothing
+ok
+Trying:
+    P['lo'], P['med'], P['hi']
+Expecting:
+    (0.125, 0.375, 0.5)
+ok
+Trying:
+    elimination_ask('Burglary', dict(JohnCalls=T, MaryCalls=T), burglary
+     ).show_approx()
+Expecting:
+    'False: 0.716, True: 0.284'
+ok
+Trying:
+    P = JointProbDist(['X', 'Y'])
+Expecting nothing
+ok
+Trying:
+    P[0,0] = 0.25; P[0,1] = 0.5; P[1,1] = P[2,1] = 0.125
+Expecting nothing
+ok
+Trying:
+    enumerate_joint_ask('X', dict(Y=1), P).show_approx()
+Expecting:
+    '0: 0.667, 1: 0.167, 2: 0.167'
+ok
+Trying:
+    enumeration_ask('Burglary', dict(JohnCalls=T, MaryCalls=T), burglary
+     ).show_approx()
+Expecting:
+    'False: 0.716, True: 0.284'
+ok
+Trying:
+    event_values ({'A': 10, 'B': 9, 'C': 8}, ['C', 'A'])
+Expecting:
+    (8, 10)
+ok
+Trying:
+    event_values ((1, 2), ['C', 'A'])
+Expecting:
+    (1, 2)
+ok
+Trying:
+    param = {'sigma':0.5, 'b':1, 'a':{'h1':0.5, 'h2': 1.5}}
+Expecting nothing
+ok
+Trying:
+    event = {'h1':0.6, 'h2': 0.3}
+Expecting nothing
+ok
+Trying:
+    gaussian_probability(param, event, 1)
+Expecting:
+    0.2590351913317835
+ok
+Trying:
+    P = JointProbDist(['X', 'Y'])
+Expecting nothing
+ok
+Trying:
+    P[0,0] = 0.25; P[0,1] = 0.5; P[1,1] = P[1,0] = 0.125
+Expecting nothing
+ok
+Trying:
+    is_independent(['X', 'Y'], P)
+Expecting:
+    False
+ok
+Trying:
+    random.seed(1017)
+Expecting nothing
+ok
+Trying:
+    likelihood_weighting('Burglary', dict(JohnCalls=T, MaryCalls=T),
+      burglary, 10000).show_approx()
+Expecting:
+    'False: 0.702, True: 0.298'
+ok
+Trying:
+    random.seed(47)
+Expecting nothing
+ok
+Trying:
+    rejection_sampling('Burglary', dict(JohnCalls=T, MaryCalls=T),
+      burglary, 10000).show_approx()
+Expecting:
+    'False: 0.7, True: 0.3'
+ok
+50 items had no tests:
+    probability4e
+    probability4e.BayesNet
+    probability4e.BayesNet.__init__
+    probability4e.BayesNet.__repr__
+    probability4e.BayesNet.add
+    probability4e.BayesNet.variable_values
+    probability4e.BayesNode
+    probability4e.BayesNode.__repr__
+    probability4e.BayesNode.sample
+    probability4e.ContinuousBayesNode
+    probability4e.ContinuousBayesNode.__init__
+    probability4e.ContinuousBayesNode.continuous_p
+    probability4e.DTAgentProgram
+    probability4e.Factor
+    probability4e.Factor.__init__
+    probability4e.Factor.normalize
+    probability4e.Factor.p
+    probability4e.Factor.pointwise_product
+    probability4e.Factor.sum_out
+    probability4e.JointProbDist.__getitem__
+    probability4e.JointProbDist.__init__
+    probability4e.JointProbDist.__repr__
+    probability4e.JointProbDist.__setitem__
+    probability4e.JointProbDist.values
+    probability4e.ProbDist.__getitem__
+    probability4e.ProbDist.__init__
+    probability4e.ProbDist.__repr__
+    probability4e.ProbDist.__setitem__
+    probability4e.ProbDist.normalize
+    probability4e.ProbDist.show_approx
+    probability4e.all_events
+    probability4e.complied_burglary
+    probability4e.complied_burglary.Alarm
+    probability4e.complied_burglary.Burglary
+    probability4e.complied_burglary.Earthquake
+    probability4e.complied_burglary.JongCalls
+    probability4e.complied_burglary.MaryCalls
+    probability4e.consistent_with
+    probability4e.enumerate_all
+    probability4e.enumerate_joint
+    probability4e.gen_possible_events
+    probability4e.gibbs_ask
+    probability4e.is_hidden
+    probability4e.logistic_probability
+    probability4e.make_factor
+    probability4e.markov_blanket_sample
+    probability4e.pointwise_product
+    probability4e.prior_sample
+    probability4e.sum_out
+    probability4e.weighted_sample
+13 items passed all tests:
+   1 tests in probability4e.BayesNet.variable_node
+   3 tests in probability4e.BayesNode.__init__
+   2 tests in probability4e.BayesNode.p
+   4 tests in probability4e.JointProbDist
+   3 tests in probability4e.ProbDist
+   1 tests in probability4e.elimination_ask
+   3 tests in probability4e.enumerate_joint_ask
+   1 tests in probability4e.enumeration_ask
+   2 tests in probability4e.event_values
+   3 tests in probability4e.gaussian_probability
+   3 tests in probability4e.is_independent
+   2 tests in probability4e.likelihood_weighting
+   2 tests in probability4e.rejection_sampling
+30 tests in 63 items.
+30 passed and 0 failed.
+Test passed.
+Trying:
+    burglary.variable_node('Burglary').variable
+Expecting:
+    'Burglary'
+ok
+Trying:
+    X = BayesNode('X', '', 0.2)
+Expecting nothing
+ok
+Trying:
+    Y = BayesNode('Y', 'P', {T: 0.2, F: 0.7})
+Expecting nothing
+ok
+Trying:
+    Z = BayesNode('Z', 'P Q',
+       {(T, T): 0.2, (T, F): 0.3, (F, T): 0.5, (F, F): 0.7})
+Expecting nothing
+ok
+Trying:
+    bn = BayesNode('X', 'Burglary', {T: 0.2, F: 0.625})
+Expecting nothing
+ok
+Trying:
+    bn.p(False, {'Burglary': False, 'Earthquake': True})
+Expecting:
+    0.375
+ok
+Trying:
+    P = JointProbDist(['X', 'Y']); P[1, 1] = 0.25
+Expecting nothing
+ok
+Trying:
+    P[1, 1]
+Expecting:
+    0.25
+ok
+Trying:
+    P[dict(X=0, Y=1)] = 0.5
+Expecting nothing
+ok
+Trying:
+    P[dict(X=0, Y=1)]
+Expecting:
+    0.5
+ok
+Trying:
+    P = ProbDist('Flip'); P['H'], P['T'] = 0.25, 0.75; P['H']
+Expecting:
+    0.25
+ok
+Trying:
+    P = ProbDist('X', {'lo': 125, 'med': 375, 'hi': 500})
+Expecting nothing
+ok
+Trying:
+    P['lo'], P['med'], P['hi']
+Expecting:
+    (0.125, 0.375, 0.5)
+ok
+Trying:
+    elimination_ask('Burglary', dict(JohnCalls=T, MaryCalls=T), burglary
+     ).show_approx()
+Expecting:
+    'False: 0.716, True: 0.284'
+ok
+Trying:
+    P = JointProbDist(['X', 'Y'])
+Expecting nothing
+ok
+Trying:
+    P[0,0] = 0.25; P[0,1] = 0.5; P[1,1] = P[2,1] = 0.125
+Expecting nothing
+ok
+Trying:
+    enumerate_joint_ask('X', dict(Y=1), P).show_approx()
+Expecting:
+    '0: 0.667, 1: 0.167, 2: 0.167'
+ok
+Trying:
+    enumeration_ask('Burglary', dict(JohnCalls=T, MaryCalls=T), burglary
+     ).show_approx()
+Expecting:
+    'False: 0.716, True: 0.284'
+ok
+Trying:
+    event_values ({'A': 10, 'B': 9, 'C': 8}, ['C', 'A'])
+Expecting:
+    (8, 10)
+ok
+Trying:
+    event_values ((1, 2), ['C', 'A'])
+Expecting:
+    (1, 2)
+ok
+Trying:
+    random.seed(1017)
+Expecting nothing
+ok
+Trying:
+    likelihood_weighting('Burglary', dict(JohnCalls=T, MaryCalls=T),
+      burglary, 10000).show_approx()
+Expecting:
+    'False: 0.702, True: 0.298'
+ok
+Trying:
+    random.seed(47)
+Expecting nothing
+ok
+Trying:
+    rejection_sampling('Burglary', dict(JohnCalls=T, MaryCalls=T),
+      burglary, 10000).show_approx()
+Expecting:
+    'False: 0.7, True: 0.3'
+ok
+66 items had no tests:
+    probability
+    probability.BayesNet
+    probability.BayesNet.__init__
+    probability.BayesNet.__repr__
+    probability.BayesNet.add
+    probability.BayesNet.variable_values
+    probability.BayesNode
+    probability.BayesNode.__repr__
+    probability.BayesNode.sample
+    probability.DTAgentProgram
+    probability.DecisionNetwork
+    probability.DecisionNetwork.__init__
+    probability.DecisionNetwork.best_action
+    probability.DecisionNetwork.get_expected_utility
+    probability.DecisionNetwork.get_utility
+    probability.Factor
+    probability.Factor.__init__
+    probability.Factor.normalize
+    probability.Factor.p
+    probability.Factor.pointwise_product
+    probability.Factor.sum_out
+    probability.HiddenMarkovModel
+    probability.HiddenMarkovModel.__init__
+    probability.HiddenMarkovModel.sensor_dist
+    probability.InformationGatheringAgent
+    probability.InformationGatheringAgent.__init__
+    probability.InformationGatheringAgent.cost
+    probability.InformationGatheringAgent.execute
+    probability.InformationGatheringAgent.integrate_percept
+    probability.InformationGatheringAgent.request
+    probability.InformationGatheringAgent.vpi
+    probability.InformationGatheringAgent.vpi_cost_ratio
+    probability.JointProbDist.__getitem__
+    probability.JointProbDist.__init__
+    probability.JointProbDist.__repr__
+    probability.JointProbDist.__setitem__
+    probability.JointProbDist.values
+    probability.MCLmap
+    probability.MCLmap.__init__
+    probability.MCLmap.ray_cast
+    probability.MCLmap.sample
+    probability.ProbDist.__getitem__
+    probability.ProbDist.__init__
+    probability.ProbDist.__repr__
+    probability.ProbDist.__setitem__
+    probability.ProbDist.normalize
+    probability.ProbDist.show_approx
+    probability.all_events
+    probability.backward
+    probability.consistent_with
+    probability.enumerate_all
+    probability.enumerate_joint
+    probability.fixed_lag_smoothing
+    probability.forward
+    probability.forward_backward
+    probability.gibbs_ask
+    probability.is_hidden
+    probability.make_factor
+    probability.markov_blanket_sample
+    probability.monte_carlo_localization
+    probability.particle_filtering
+    probability.pointwise_product
+    probability.prior_sample
+    probability.sum_out
+    probability.viterbi
+    probability.weighted_sample
+11 items passed all tests:
+   1 tests in probability.BayesNet.variable_node
+   3 tests in probability.BayesNode.__init__
+   2 tests in probability.BayesNode.p
+   4 tests in probability.JointProbDist
+   3 tests in probability.ProbDist
+   1 tests in probability.elimination_ask
+   3 tests in probability.enumerate_joint_ask
+   1 tests in probability.enumeration_ask
+   2 tests in probability.event_values
+   2 tests in probability.likelihood_weighting
+   2 tests in probability.rejection_sampling
+24 tests in 77 items.
+24 passed and 0 failed.
+Test passed.
+2 items had no tests:
+    randomvacuumagent
+    randomvacuumagent.test_RandomVacuumAgent
+0 tests in 2 items.
+0 passed and 0 failed.
+Test passed.
+2 items had no tests:
+    reflexvacuumagent
+    reflexvacuumagent.test_ReflexVacuumAgent
+0 tests in 2 items.
+0 passed and 0 failed.
+Test passed.
+24 items had no tests:
+    reinforcement_learning4e
+    reinforcement_learning4e.PassiveADPAgent
+    reinforcement_learning4e.PassiveADPAgent.ModelMDP
+    reinforcement_learning4e.PassiveADPAgent.ModelMDP.T
+    reinforcement_learning4e.PassiveADPAgent.ModelMDP.__init__
+    reinforcement_learning4e.PassiveADPAgent.__call__
+    reinforcement_learning4e.PassiveADPAgent.__init__
+    reinforcement_learning4e.PassiveADPAgent.update_state
+    reinforcement_learning4e.PassiveDUEAgent
+    reinforcement_learning4e.PassiveDUEAgent.__call__
+    reinforcement_learning4e.PassiveDUEAgent.__init__
+    reinforcement_learning4e.PassiveDUEAgent.estimate_U
+    reinforcement_learning4e.PassiveDUEAgent.update_state
+    reinforcement_learning4e.PassiveTDAgent
+    reinforcement_learning4e.PassiveTDAgent.__call__
+    reinforcement_learning4e.PassiveTDAgent.__init__
+    reinforcement_learning4e.PassiveTDAgent.update_state
+    reinforcement_learning4e.QLearningAgent
+    reinforcement_learning4e.QLearningAgent.__call__
+    reinforcement_learning4e.QLearningAgent.__init__
+    reinforcement_learning4e.QLearningAgent.actions_in_state
+    reinforcement_learning4e.QLearningAgent.f
+    reinforcement_learning4e.QLearningAgent.update_state
+    reinforcement_learning4e.run_single_trial
+0 tests in 24 items.
+0 passed and 0 failed.
+Test passed.
+24 items had no tests:
+    reinforcement_learning
+    reinforcement_learning.PassiveADPAgent
+    reinforcement_learning.PassiveADPAgent.ModelMDP
+    reinforcement_learning.PassiveADPAgent.ModelMDP.T
+    reinforcement_learning.PassiveADPAgent.ModelMDP.__init__
+    reinforcement_learning.PassiveADPAgent.__call__
+    reinforcement_learning.PassiveADPAgent.__init__
+    reinforcement_learning.PassiveADPAgent.update_state
+    reinforcement_learning.PassiveDUEAgent
+    reinforcement_learning.PassiveDUEAgent.__call__
+    reinforcement_learning.PassiveDUEAgent.__init__
+    reinforcement_learning.PassiveDUEAgent.estimate_U
+    reinforcement_learning.PassiveDUEAgent.update_state
+    reinforcement_learning.PassiveTDAgent
+    reinforcement_learning.PassiveTDAgent.__call__
+    reinforcement_learning.PassiveTDAgent.__init__
+    reinforcement_learning.PassiveTDAgent.update_state
+    reinforcement_learning.QLearningAgent
+    reinforcement_learning.QLearningAgent.__call__
+    reinforcement_learning.QLearningAgent.__init__
+    reinforcement_learning.QLearningAgent.actions_in_state
+    reinforcement_learning.QLearningAgent.f
+    reinforcement_learning.QLearningAgent.update_state
+    reinforcement_learning.run_single_trial
+0 tests in 24 items.
+0 passed and 0 failed.
+Test passed.
+Trying:
+    depth_first_tree_search(NQueensProblem(8))
+Expecting:
+    <Node (7, 3, 0, 2, 5, 1, 6, 4)>
+ok
+139 items had no tests:
+    search
+    search.BoggleFinder
+    search.BoggleFinder.__init__
+    search.BoggleFinder.__len__
+    search.BoggleFinder.find
+    search.BoggleFinder.score
+    search.BoggleFinder.set_board
+    search.BoggleFinder.words
+    search.EightPuzzle
+    search.EightPuzzle.__init__
+    search.EightPuzzle.actions
+    search.EightPuzzle.check_solvability
+    search.EightPuzzle.find_blank_square
+    search.EightPuzzle.goal_test
+    search.EightPuzzle.h
+    search.EightPuzzle.result
+    search.Graph
+    search.Graph.__init__
+    search.Graph.connect
+    search.Graph.connect1
+    search.Graph.get
+    search.Graph.make_undirected
+    search.Graph.nodes
+    search.GraphProblem
+    search.GraphProblem.__init__
+    search.GraphProblem.actions
+    search.GraphProblem.find_min_edge
+    search.GraphProblem.h
+    search.GraphProblem.path_cost
+    search.GraphProblem.result
+    search.GraphProblemStochastic
+    search.GraphProblemStochastic.path_cost
+    search.GraphProblemStochastic.result
+    search.InstrumentedProblem
+    search.InstrumentedProblem.__getattr__
+    search.InstrumentedProblem.__init__
+    search.InstrumentedProblem.__repr__
+    search.InstrumentedProblem.actions
+    search.InstrumentedProblem.goal_test
+    search.InstrumentedProblem.path_cost
+    search.InstrumentedProblem.result
+    search.InstrumentedProblem.value
+    search.LRTAStarAgent
+    search.LRTAStarAgent.LRTA_cost
+    search.LRTAStarAgent.__call__
+    search.LRTAStarAgent.__init__
+    search.NQueensProblem.__init__
+    search.NQueensProblem.actions
+    search.NQueensProblem.conflict
+    search.NQueensProblem.conflicted
+    search.NQueensProblem.goal_test
+    search.NQueensProblem.h
+    search.NQueensProblem.result
+    search.Node
+    search.Node.__eq__
+    search.Node.__hash__
+    search.Node.__init__
+    search.Node.__lt__
+    search.Node.__repr__
+    search.Node.child_node
+    search.Node.expand
+    search.Node.path
+    search.Node.solution
+    search.OnlineDFSAgent
+    search.OnlineDFSAgent.__call__
+    search.OnlineDFSAgent.__init__
+    search.OnlineDFSAgent.update_state
+    search.OnlineSearchProblem
+    search.OnlineSearchProblem.__init__
+    search.OnlineSearchProblem.actions
+    search.OnlineSearchProblem.c
+    search.OnlineSearchProblem.goal_test
+    search.OnlineSearchProblem.h
+    search.OnlineSearchProblem.output
+    search.OnlineSearchProblem.update_state
+    search.PeakFindingProblem
+    search.PeakFindingProblem.__init__
+    search.PeakFindingProblem.actions
+    search.PeakFindingProblem.result
+    search.PeakFindingProblem.value
+    search.PlanRoute
+    search.PlanRoute.__init__
+    search.PlanRoute.actions
+    search.PlanRoute.goal_test
+    search.PlanRoute.h
+    search.PlanRoute.result
+    search.Problem
+    search.Problem.__init__
+    search.Problem.actions
+    search.Problem.goal_test
+    search.Problem.path_cost
+    search.Problem.result
+    search.Problem.value
+    search.RandomGraph
+    search.SimpleProblemSolvingAgentProgram
+    search.SimpleProblemSolvingAgentProgram.__call__
+    search.SimpleProblemSolvingAgentProgram.__init__
+    search.SimpleProblemSolvingAgentProgram.formulate_goal
+    search.SimpleProblemSolvingAgentProgram.formulate_problem
+    search.SimpleProblemSolvingAgentProgram.search
+    search.SimpleProblemSolvingAgentProgram.update_state
+    search.UndirectedGraph
+    search.Wordlist
+    search.Wordlist.__contains__
+    search.Wordlist.__init__
+    search.Wordlist.__len__
+    search.Wordlist.lookup
+    search.and_or_graph_search
+    search.astar_search
+    search.best_first_graph_search
+    search.bidirectional_search
+    search.boggle_hill_climbing
+    search.boggle_neighbors
+    search.breadth_first_graph_search
+    search.breadth_first_tree_search
+    search.compare_graph_searchers
+    search.compare_searchers
+    search.depth_first_graph_search
+    search.depth_first_tree_search
+    search.depth_limited_search
+    search.exact_sqrt
+    search.exp_schedule
+    search.fitness_threshold
+    search.genetic_algorithm
+    search.genetic_search
+    search.hill_climbing
+    search.init_population
+    search.iterative_deepening_search
+    search.mutate
+    search.mutate_boggle
+    search.print_boggle
+    search.random_boggle
+    search.recombine
+    search.recombine_uniform
+    search.recursive_best_first_search
+    search.select
+    search.simulated_annealing
+    search.simulated_annealing_full
+    search.uniform_cost_search
+1 items passed all tests:
+   1 tests in search.NQueensProblem
+1 tests in 140 items.
+1 passed and 0 failed.
+Test passed.
+Trying:
+    bigrams('this')
+Expecting:
+    ['th', 'hi', 'is']
+ok
+Trying:
+    bigrams(['this', 'is', 'a', 'test'])
+Expecting:
+    [['this', 'is'], ['is', 'a'], ['a', 'test']]
+ok
+Trying:
+    canonicalize("``EGAD!'' Edgar cried.")
+Expecting:
+    'egad edgar cried'
+ok
+Trying:
+    rot13('hello')
+Expecting:
+    'uryyb'
+ok
+Trying:
+    rot13(rot13('hello'))
+Expecting:
+    'hello'
+ok
+Trying:
+    shift_encode('abc z', 1)
+Expecting:
+    'bcd a'
+ok
+Trying:
+    words("``EGAD!'' Edgar cried.")
+Expecting:
+    ['egad', 'edgar', 'cried']
+ok
+45 items had no tests:
+    text
+    text.Document
+    text.Document.__init__
+    text.IRSystem
+    text.IRSystem.__init__
+    text.IRSystem.index_collection
+    text.IRSystem.index_document
+    text.IRSystem.present
+    text.IRSystem.present_results
+    text.IRSystem.query
+    text.IRSystem.score
+    text.IRSystem.total_score
+    text.NgramCharModel
+    text.NgramCharModel.add_sequence
+    text.NgramWordModel
+    text.NgramWordModel.__init__
+    text.NgramWordModel.add_cond_prob
+    text.NgramWordModel.add_sequence
+    text.NgramWordModel.samples
+    text.PermutationDecoder
+    text.PermutationDecoder.__init__
+    text.PermutationDecoder.decode
+    text.PermutationDecoder.score
+    text.PermutationDecoderProblem
+    text.PermutationDecoderProblem.__init__
+    text.PermutationDecoderProblem.actions
+    text.PermutationDecoderProblem.goal_test
+    text.PermutationDecoderProblem.result
+    text.ShiftDecoder
+    text.ShiftDecoder.__init__
+    text.ShiftDecoder.decode
+    text.ShiftDecoder.score
+    text.UnigramCharModel
+    text.UnigramCharModel.__init__
+    text.UnigramCharModel.add_sequence
+    text.UnigramWordModel
+    text.UnigramWordModel.__init__
+    text.UnigramWordModel.samples
+    text.UnixConsultant
+    text.UnixConsultant.__init__
+    text.all_shifts
+    text.encode
+    text.maketrans
+    text.translate
+    text.viterbi_segment
+5 items passed all tests:
+   2 tests in text.bigrams
+   1 tests in text.canonicalize
+   2 tests in text.rot13
+   1 tests in text.shift_encode
+   1 tests in text.words
+7 tests in 50 items.
+7 passed and 0 failed.
+Test passed.
+Trying:
+    d = defaultkeydict(len); d['four']
+Expecting:
+    4
+ok
+Trying:
+    expr('P & Q ==> Q')
+Expecting:
+    ((P & Q) ==> Q)
+ok
+Trying:
+    expr_handle_infix_ops('P ==> Q')
+Expecting:
+    "P |'==>'| Q"
+ok
+148 items had no tests:
+    utils4e
+    utils4e.Activation
+    utils4e.Activation.derivative
+    utils4e.Activation.function
+    utils4e.Bool
+    utils4e.Bool.__str__
+    utils4e.Elu
+    utils4e.Elu.derivative
+    utils4e.Elu.function
+    utils4e.Expr
+    utils4e.Expr.__add__
+    utils4e.Expr.__and__
+    utils4e.Expr.__call__
+    utils4e.Expr.__eq__
+    utils4e.Expr.__floordiv__
+    utils4e.Expr.__hash__
+    utils4e.Expr.__init__
+    utils4e.Expr.__invert__
+    utils4e.Expr.__lshift__
+    utils4e.Expr.__lt__
+    utils4e.Expr.__matmul__
+    utils4e.Expr.__mod__
+    utils4e.Expr.__mul__
+    utils4e.Expr.__neg__
+    utils4e.Expr.__or__
+    utils4e.Expr.__pos__
+    utils4e.Expr.__pow__
+    utils4e.Expr.__radd__
+    utils4e.Expr.__rand__
+    utils4e.Expr.__rdiv__
+    utils4e.Expr.__repr__
+    utils4e.Expr.__rfloordiv__
+    utils4e.Expr.__rlshift__
+    utils4e.Expr.__rmatmul__
+    utils4e.Expr.__rmod__
+    utils4e.Expr.__rmul__
+    utils4e.Expr.__ror__
+    utils4e.Expr.__rpow__
+    utils4e.Expr.__rrshift__
+    utils4e.Expr.__rshift__
+    utils4e.Expr.__rsub__
+    utils4e.Expr.__rtruediv__
+    utils4e.Expr.__rxor__
+    utils4e.Expr.__sub__
+    utils4e.Expr.__truediv__
+    utils4e.Expr.__xor__
+    utils4e.LeakyRelu
+    utils4e.LeakyRelu.derivative
+    utils4e.LeakyRelu.function
+    utils4e.MCT_Node
+    utils4e.MCT_Node.__init__
+    utils4e.PartialExpr
+    utils4e.PartialExpr.__init__
+    utils4e.PartialExpr.__or__
+    utils4e.PartialExpr.__repr__
+    utils4e.PriorityQueue
+    utils4e.PriorityQueue.__contains__
+    utils4e.PriorityQueue.__delitem__
+    utils4e.PriorityQueue.__getitem__
+    utils4e.PriorityQueue.__init__
+    utils4e.PriorityQueue.__len__
+    utils4e.PriorityQueue.append
+    utils4e.PriorityQueue.extend
+    utils4e.PriorityQueue.pop
+    utils4e.Relu
+    utils4e.Relu.derivative
+    utils4e.Relu.function
+    utils4e.Sigmoid
+    utils4e.Sigmoid.derivative
+    utils4e.Sigmoid.function
+    utils4e.Symbol
+    utils4e.Tanh
+    utils4e.Tanh.derivative
+    utils4e.Tanh.function
+    utils4e.argmax_random_tie
+    utils4e.argmin_random_tie
+    utils4e.arity
+    utils4e.conv1D
+    utils4e.count
+    utils4e.cross_entropy_loss
+    utils4e.defaultkeydict.__missing__
+    utils4e.distance
+    utils4e.distance_squared
+    utils4e.dot_product
+    utils4e.element_wise_product
+    utils4e.euclidean_distance
+    utils4e.extend
+    utils4e.failure_test
+    utils4e.first
+    utils4e.gaussian
+    utils4e.gaussian_2D
+    utils4e.gaussian_kernel
+    utils4e.gaussian_kernel_1D
+    utils4e.gaussian_kernel_2D
+    utils4e.hamming_distance
+    utils4e.hashabledict
+    utils4e.hashabledict.__hash__
+    utils4e.histogram
+    utils4e.identity
+    utils4e.injection
+    utils4e.injection.__enter__
+    utils4e.injection.__exit__
+    utils4e.injection.__init__
+    utils4e.is_in
+    utils4e.isnumber
+    utils4e.issequence
+    utils4e.linear_kernel
+    utils4e.manhattan_distance
+    utils4e.map_vector
+    utils4e.matrix_multiplication
+    utils4e.mean_boolean_error
+    utils4e.mean_error
+    utils4e.mean_squared_error_loss
+    utils4e.memoize
+    utils4e.mode
+    utils4e.ms_error
+    utils4e.multimap
+    utils4e.multimap_items
+    utils4e.name
+    utils4e.normalize
+    utils4e.num_or_str
+    utils4e.open_data
+    utils4e.polynomial_kernel
+    utils4e.power_set
+    utils4e.print_table
+    utils4e.probability
+    utils4e.product
+    utils4e.random_weights
+    utils4e.rbf_kernel
+    utils4e.remove_all
+    utils4e.rms_error
+    utils4e.rounder
+    utils4e.scalar_vector_product
+    utils4e.sequence
+    utils4e.shuffled
+    utils4e.softmax1D
+    utils4e.step
+    utils4e.subexpressions
+    utils4e.symbols
+    utils4e.turn_heading
+    utils4e.turn_left
+    utils4e.turn_right
+    utils4e.ucb
+    utils4e.unique
+    utils4e.vector_add
+    utils4e.weighted_choice
+    utils4e.weighted_sample_with_replacement
+    utils4e.weighted_sampler
+3 items passed all tests:
+   1 tests in utils4e.defaultkeydict
+   1 tests in utils4e.expr
+   1 tests in utils4e.expr_handle_infix_ops
+3 tests in 151 items.
+3 passed and 0 failed.
+Test passed.
+Trying:
+    d = defaultkeydict(len); d['four']
+Expecting:
+    4
+ok
+Trying:
+    expr('P & Q ==> Q')
+Expecting:
+    ((P & Q) ==> Q)
+ok
+Trying:
+    expr_handle_infix_ops('P ==> Q')
+Expecting:
+    "P |'==>'| Q"
+ok
+130 items had no tests:
+    utils
+    utils.Bool
+    utils.Bool.__str__
+    utils.Expr
+    utils.Expr.__add__
+    utils.Expr.__and__
+    utils.Expr.__call__
+    utils.Expr.__eq__
+    utils.Expr.__floordiv__
+    utils.Expr.__hash__
+    utils.Expr.__init__
+    utils.Expr.__invert__
+    utils.Expr.__lshift__
+    utils.Expr.__lt__
+    utils.Expr.__matmul__
+    utils.Expr.__mod__
+    utils.Expr.__mul__
+    utils.Expr.__neg__
+    utils.Expr.__or__
+    utils.Expr.__pos__
+    utils.Expr.__pow__
+    utils.Expr.__radd__
+    utils.Expr.__rand__
+    utils.Expr.__rdiv__
+    utils.Expr.__repr__
+    utils.Expr.__rfloordiv__
+    utils.Expr.__rlshift__
+    utils.Expr.__rmatmul__
+    utils.Expr.__rmod__
+    utils.Expr.__rmul__
+    utils.Expr.__ror__
+    utils.Expr.__rpow__
+    utils.Expr.__rrshift__
+    utils.Expr.__rshift__
+    utils.Expr.__rsub__
+    utils.Expr.__rtruediv__
+    utils.Expr.__rxor__
+    utils.Expr.__sub__
+    utils.Expr.__truediv__
+    utils.Expr.__xor__
+    utils.PartialExpr
+    utils.PartialExpr.__init__
+    utils.PartialExpr.__or__
+    utils.PartialExpr.__repr__
+    utils.PriorityQueue
+    utils.PriorityQueue.__contains__
+    utils.PriorityQueue.__delitem__
+    utils.PriorityQueue.__getitem__
+    utils.PriorityQueue.__init__
+    utils.PriorityQueue.__len__
+    utils.PriorityQueue.append
+    utils.PriorityQueue.extend
+    utils.PriorityQueue.pop
+    utils.Symbol
+    utils.argmax_random_tie
+    utils.argmin_random_tie
+    utils.arity
+    utils.count
+    utils.cross_entropy_loss
+    utils.defaultkeydict.__missing__
+    utils.distance
+    utils.distance_squared
+    utils.dot_product
+    utils.element_wise_product
+    utils.elu
+    utils.elu_derivative
+    utils.euclidean_distance
+    utils.extend
+    utils.failure_test
+    utils.first
+    utils.gaussian
+    utils.hamming_distance
+    utils.hashabledict
+    utils.hashabledict.__hash__
+    utils.histogram
+    utils.identity
+    utils.injection
+    utils.injection.__enter__
+    utils.injection.__exit__
+    utils.injection.__init__
+    utils.is_in
+    utils.isnumber
+    utils.issequence
+    utils.leaky_relu
+    utils.leaky_relu_derivative
+    utils.linear_kernel
+    utils.manhattan_distance
+    utils.matrix_multiplication
+    utils.mean_boolean_error
+    utils.mean_error
+    utils.mean_squared_error_loss
+    utils.memoize
+    utils.mode
+    utils.ms_error
+    utils.multimap
+    utils.multimap_items
+    utils.name
+    utils.normalize
+    utils.num_or_str
+    utils.open_data
+    utils.polynomial_kernel
+    utils.power_set
+    utils.print_table
+    utils.probability
+    utils.product
+    utils.random_weights
+    utils.rbf_kernel
+    utils.relu
+    utils.relu_derivative
+    utils.remove_all
+    utils.rms_error
+    utils.rounder
+    utils.scalar_vector_product
+    utils.sequence
+    utils.shuffled
+    utils.sigmoid
+    utils.sigmoid_derivative
+    utils.step
+    utils.subexpressions
+    utils.symbols
+    utils.tanh
+    utils.tanh_derivative
+    utils.turn_heading
+    utils.turn_left
+    utils.turn_right
+    utils.unique
+    utils.vector_add
+    utils.weighted_choice
+    utils.weighted_sample_with_replacement
+    utils.weighted_sampler
+3 items passed all tests:
+   1 tests in utils.defaultkeydict
+   1 tests in utils.expr
+   1 tests in utils.expr_handle_infix_ops
+3 tests in 133 items.
+3 passed and 0 failed.
+Test passed.
+
